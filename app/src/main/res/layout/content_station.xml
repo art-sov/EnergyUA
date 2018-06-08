@@ -19,7 +19,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:src="@mipmap/mine"
+            android:src="@mipmap/ic_mine"
             android:layout_marginEnd="2dp"
             android:layout_gravity="center"/>
 
@@ -30,7 +30,7 @@
             android:layout_marginEnd="2dp"
             android:layout_marginStart="2dp"
             android:layout_weight="1"
-            android:src="@mipmap/oil" />
+            android:src="@mipmap/ic_oil" />
 
         <ImageView
             android:layout_width="0dp"
@@ -39,7 +39,7 @@
             android:layout_marginEnd="2dp"
             android:layout_marginStart="2dp"
             android:layout_weight="1"
-            android:src="@mipmap/valve" />
+            android:src="@mipmap/ic_valve" />
 
         <ImageView
             android:layout_width="0dp"
@@ -48,16 +48,16 @@
             android:layout_marginEnd="2dp"
             android:layout_marginStart="2dp"
             android:layout_weight="1"
-            android:src="@mipmap/factory" />
+            android:src="@mipmap/ic_factory" />
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_marginEnd="2dp"
             android:layout_marginStart="2dp"
             android:layout_weight="1"
-            android:src="@mipmap/ic_two_columns" />
+            android:src="@mipmap/ic_pattern" />
         <ImageView
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -192,4 +192,33 @@
             android:layout_marginEnd="2dp"/>
 
     </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/simple_rect"/>
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/textView"
+        android:background="@drawable/simple_rect"
+        android:textSize="7sp"
+        android:textColor="@color/primary_text"
+        android:text="1013"
+        android:gravity="center"
+        android:elevation="@dimen/fab_margin"/>
+
+        <ua.energy.CustomBlock
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="586"
+            android:textSize="7sp"
+            android:textColor="@color/primary_text"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"/>
+
 </LinearLayout>
