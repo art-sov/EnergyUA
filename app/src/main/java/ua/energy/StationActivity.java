@@ -26,8 +26,7 @@ public class StationActivity extends AppCompatActivity {
             }
         });
 
-
-        CoordinatorLayout layout = (CoordinatorLayout) findViewById(R.id.station_layout);
+           CoordinatorLayout layout = (CoordinatorLayout) findViewById(R.id.station_layout);
 
         //TODO скрыть навигационную панель
         layout.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION

@@ -26,4 +26,19 @@
         <item name="android:textStyle">bold</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <!--style for fuel table-->
+    <style name="FuelTable">
+        <item name="android:textSize">9sp</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--style for block table-->
+    <style name="Block">
+        <item name="android:textSize">9sp</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:gravity">center</item>
+    </style>
 </resources>
