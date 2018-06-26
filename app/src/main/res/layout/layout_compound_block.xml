@@ -4,31 +4,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:weightSum="100">
+    android:weightSum="100"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
         android:layout_height="match_parent"
         android:layout_width="0dp"
         android:layout_weight="35"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/simple_rect">
 
         <TextView
             android:id="@+id/tv_unit1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/repair_overhaul"
-            android:text="1"
-            style="@style/Block"/>
+            tools:text="1"
+            style="@style/unit"/>
 
         <TextView
             android:id="@+id/tv_unit2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/repair_cold_reserve"
-            android:text="2"
-            style="@style/Block"/>
+            tools:text="2"
+            style="@style/unit"/>
     </LinearLayout>
 
     <TextView
@@ -38,5 +38,5 @@
         android:layout_width="0dp"
         android:gravity="center"
         android:text="341"
-        style="@style/Block"/>
+        style="@style/unit"/>
 </merge>

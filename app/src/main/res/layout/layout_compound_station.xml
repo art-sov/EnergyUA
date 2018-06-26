@@ -8,6 +8,7 @@
 
     <!--FuelTable-->
     <TextView
+
         android:id="@+id/column1"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -15,6 +16,7 @@
         android:background="@drawable/simple_rect"
         style="@style/FuelTable"
         android:text="84.3"/>
+
     <TextView
         android:id="@+id/column2"
         android:layout_width="0dp"
@@ -58,84 +60,220 @@
 
     <!--BlockTable-->
     <TextView
-        android:id="@+id/block01"
+        style="@style/Block"
+        android:id="@+id/block01tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
-    <TextView
-        android:id="@+id/block02"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
-
-    <TextView
-        android:id="@+id/block03"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:visibility="visible"/>
     <ua.energy.CompoundBlock
-        android:id="@+id/block04"
+        android:visibility="gone"
+        android:id="@+id/block01cb"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
-   <ua.energy.CompoundBlock
-       android:id="@+id/block05"
-       android:layout_width="0dp"
-       android:layout_weight="1"
-       android:layout_height="match_parent">
-   </ua.energy.CompoundBlock>
-      <TextView
-        android:id="@+id/block06"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
-    <TextView
-        android:id="@+id/block07"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
-    <TextView
-        android:id="@+id/block08"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+
 
     <TextView
-        android:id="@+id/block09"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
-    <TextView
-        android:id="@+id/block10"
+        style="@style/Block"
+        android:id="@+id/block02tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
+    <ua.energy.CompoundBlock
+        android:visibility="gone"
+        android:id="@+id/block02cb"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+
+
     <TextView
-        android:id="@+id/block11"
+        style="@style/Block"
+        android:id="@+id/block03tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
+    <ua.energy.CompoundBlock
+        android:visibility="gone"
+        android:id="@+id/block03cb"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+
     <TextView
-        android:id="@+id/block12"
+        style="@style/Block"
+        android:id="@+id/block04tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
+    <ua.energy.CompoundBlock
+        android:visibility="gone"
+        android:id="@+id/block04cb"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+
     <TextView
-        android:id="@+id/block13"
+        style="@style/Block"
+           android:visibility="gone"
+        android:id="@+id/block05tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+    <ua.energy.CompoundBlock
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="2dp"
+        android:visibility="visible"
+        android:id="@+id/block05cb"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        style="@style/Block"
+        android:id="@+id/block06tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+    <ua.energy.CompoundBlock
+        android:visibility="gone"
+        android:id="@+id/block06cb"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        style="@style/Block"
+        android:visibility="gone"
+        android:id="@+id/block07tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+    <ua.energy.CompoundBlock
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="2dp"
+        android:visibility="visible"
+        android:id="@+id/block07cb"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+
+
+    <TextView
+        style="@style/Block"
+        android:id="@+id/block08tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+    <ua.energy.CompoundBlock
+        android:visibility="gone"
+        android:id="@+id/block08cb"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+
+
+    <TextView
+
+        android:id="@+id/block09tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="126"/>
-    <TextView
-        android:id="@+id/block14"
+        android:text="133"
+        style="@style/Block" />
+    <ua.energy.CompoundBlock
+        android:visibility="gone"
+        android:id="@+id/block09cb"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+
+
     <TextView
-        android:id="@+id/block15"
+        android:id="@+id/block10tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="127"/>
+        style="@style/Block"
+        android:background="@color/repair_overhaul" />
+    <ua.energy.CompoundBlock
+        android:visibility="gone"
+        android:id="@+id/block10cb"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+
+
+    <TextView
+        android:id="@+id/block11tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        style="@style/Block"
+        android:background="@color/repair_cold_reserve"/>
+    <ua.energy.CompoundBlock
+        android:visibility="gone"
+        android:id="@+id/block11cb"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+
+
+    <TextView
+        android:id="@+id/block12tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        style="@style/Block"
+        android:background="@color/repair_preservation"/>
+    <ua.energy.CompoundBlock
+        android:visibility="gone"
+        android:id="@+id/block12cb"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+
+
+    <TextView
+        android:id="@+id/block13tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        style="@style/Block"
+        android:text="130"/>
+    <ua.energy.CompoundBlock
+        android:visibility="gone"
+        android:id="@+id/block13cb"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+
+
+    <TextView
+        android:id="@+id/block14tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        style="@style/Block" />
+    <ua.energy.CompoundBlock
+        android:visibility="gone"
+        android:id="@+id/block14cb"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+
+
+    <TextView
+        android:id="@+id/block15tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        style="@style/Block"
+        android:background="@color/repair_cold_reserve"/>
+    <ua.energy.CompoundBlock
+        android:visibility="gone"
+        android:id="@+id/block15cb"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
 </merge>
