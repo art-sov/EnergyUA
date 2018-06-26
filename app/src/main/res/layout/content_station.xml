@@ -4,24 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    tools:context=".MainActivity">
 
+    <!--шапка таблицы-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="@color/colorPrimaryLight"
-        android:elevation="4dp">
+        android:elevation="4dp"
+        android:orientation="horizontal">
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_mine"
+            android:layout_gravity="center"
             android:layout_marginEnd="2dp"
-            android:layout_gravity="center"/>
+            android:layout_weight="1"
+            android:src="@mipmap/ic_mine" />
 
         <ImageView
             android:layout_width="0dp"
@@ -58,402 +59,290 @@
             android:layout_marginStart="2dp"
             android:layout_weight="1"
             android:src="@mipmap/ic_pattern" />
+
         <ImageView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_energy"
-            android:layout_marginStart="2dp"
+            android:layout_gravity="center"
             android:layout_marginEnd="2dp"
-            android:layout_gravity="center"/>
+            android:layout_marginStart="2dp"
+            android:layout_weight="1"
+            android:src="@mipmap/ic_energy" />
 
 
+        <TextView
+            style="@style/Header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
+            android:layout_marginStart="2dp"
+            android:layout_weight="1"
+            android:text="1" />
 
+        <TextView
+            style="@style/Header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
+            android:layout_marginStart="2dp"
+            android:layout_weight="1"
+            android:text="2" />
 
         <TextView
+            style="@style/Header"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="1"
-            style="@style/Header"
-            android:layout_weight="1"
+            android:layout_marginEnd="2dp"
             android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"/>
+            android:layout_weight="1"
+            android:text="3" />
+
         <TextView
+            style="@style/Header"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="2"
-            style="@style/Header"
-            android:layout_weight="1"
+            android:layout_marginEnd="2dp"
             android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"/>
+            android:layout_weight="1"
+            android:text="4" />
+
         <TextView
+            style="@style/Header"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="3"
-            style="@style/Header"
-            android:layout_weight="1"
+            android:layout_marginEnd="2dp"
             android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"/>
+            android:layout_weight="1"
+            android:text="5" />
+
         <TextView
+            style="@style/Header"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="4"
-            style="@style/Header"
-            android:layout_weight="1"
+            android:layout_marginEnd="2dp"
             android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"/>
+            android:layout_weight="1"
+            android:text="6" />
+
         <TextView
+            style="@style/Header"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="5"
-            style="@style/Header"
-            android:layout_weight="1"
+            android:layout_marginEnd="2dp"
             android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"/>
+            android:layout_weight="1"
+            android:text="7" />
+
         <TextView
+            style="@style/Header"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="6"
-            style="@style/Header"
-            android:layout_weight="1"
+            android:layout_marginEnd="2dp"
             android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"/>
+            android:layout_weight="1"
+            android:text="8" />
+
         <TextView
+            style="@style/Header"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="7"
-            style="@style/Header"
-            android:layout_weight="1"
+            android:layout_marginEnd="2dp"
             android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"/>
+            android:layout_weight="1"
+            android:text="9" />
+
         <TextView
+            style="@style/Header"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="8"
-            style="@style/Header"
-            android:layout_weight="1"
+            android:layout_marginEnd="2dp"
             android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"/>
+            android:layout_weight="1"
+            android:text="10" />
+
         <TextView
+            style="@style/Header"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="9"
-            style="@style/Header"
-            android:layout_weight="1"
+            android:layout_marginEnd="2dp"
             android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"/>
+            android:layout_weight="1"
+            android:text="11" />
+
         <TextView
+            style="@style/Header"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="10"
-            style="@style/Header"
-            android:layout_weight="1"
+            android:layout_marginEnd="2dp"
             android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"/>
+            android:layout_weight="1"
+            android:text="12" />
+
         <TextView
+            style="@style/Header"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="11"
-            style="@style/Header"
-            android:layout_weight="1"
+            android:layout_marginEnd="2dp"
             android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"/>
+            android:layout_weight="1"
+            android:text="13" />
+
         <TextView
+            style="@style/Header"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="12"
-            style="@style/Header"
-            android:layout_weight="1"
+            android:layout_marginEnd="2dp"
             android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"/>
+            android:layout_weight="1"
+            android:text="14" />
+
         <TextView
+            style="@style/Header"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="13"
-            style="@style/Header"
-            android:layout_weight="1"
+            android:layout_marginEnd="2dp"
             android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="14"
-            style="@style/Header"
             android:layout_weight="1"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="15"
-            style="@style/Header"
-            android:layout_weight="1"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"/>
+            android:text="15" />
 
     </LinearLayout>
 
-
-    <android.support.v7.widget.LinearLayoutCompat
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
-        <!--FuelTable-->
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/simple_rect"
-            style="@style/FuelTable"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/simple_rect"
-            style="@style/FuelTable"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/simple_rect"
-            style="@style/FuelTable"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/simple_rect"
-            android:text="РАЭС"
-            style="@style/FuelTable"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/simple_rect"
-            android:text="2+1"
-            style="@style/FuelTable"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/simple_rect"
-            style="@style/FuelTable"
-            android:text="1807"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <!--BlockTable-->
-        <ua.energy.CustomBlock
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-        <ua.energy.CustomBlock
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/repair_medium"
-            style="@style/Block"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/simple_rect"
-            android:text="978"
-            style="@style/Block"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-    </android.support.v7.widget.LinearLayoutCompat>
+            <!--строки таблицы (станции)-->
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
 
-    <android.support.v7.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
 
-        <!--FuelTable-->
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/simple_rect"
-            style="@style/FuelTable"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/simple_rect"
-            style="@style/FuelTable"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/simple_rect"
-            style="@style/FuelTable"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/simple_rect"
-            android:text="ЗАЭС"
-            style="@style/FuelTable"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/simple_rect"
-            android:text="4"
-            style="@style/FuelTable"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/simple_rect"
-            style="@style/FuelTable"
-            android:text="3877"/>
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
 
-        <!--BlockTable-->
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/simple_rect"
-            android:text="918"
-            style="@style/Block"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/simple_rect"
-            android:text="953"
-            style="@style/Block"/>
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/simple_rect"
-            style="@style/Block"
-            android:text="998"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            style="@style/Block"
-            android:background="@color/repair_medium"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            style="@style/Block"
-            android:background="@color/repair_overhaul"/>
-        <TextView
-            android:layout_width="0dp"
-            android:text="1008"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            style="@style/Block"
-            android:background="@drawable/simple_rect"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-    </android.support.v7.widget.LinearLayoutCompat>
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout05"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
 
-    <include
-        layout="@layout/layout_station"/>
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout06"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
 
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout07"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
 
-    <!--<ImageView-->
-        <!--android:layout_width="50dp"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:id="@+id/imageView"-->
-        <!--android:src="@drawable/simple_rect"/>-->
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout08"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
 
-    <!--<TextView-->
-        <!--android:layout_width="50dp"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:id="@+id/textView"-->
-        <!--android:background="@drawable/simple_rect"-->
-        <!--android:textSize="7sp"-->
-        <!--android:textColor="@color/primary_text"-->
-        <!--android:text="1013"-->
-        <!--android:gravity="center"-->
-        <!--android:elevation="@dimen/fab_margin"/>-->
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout09"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
 
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
+
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
+
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
+
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
+
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
+
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
+
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
+
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
+
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
+
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
+
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
+
+            <ua.energy.CompoundStation
+                android:id="@+id/station_layout21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ua.energy.CompoundStation>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

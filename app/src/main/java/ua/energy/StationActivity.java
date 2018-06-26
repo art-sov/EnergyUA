@@ -26,12 +26,13 @@ public class StationActivity extends AppCompatActivity {
             }
         });
 
-           CoordinatorLayout layout = (CoordinatorLayout) findViewById(R.id.station_layout);
+        CompoundStation compoundStation = (CompoundStation)findViewById(R.id.station_layout01);
 
-        //TODO скрыть навигационную панель
-        layout.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+        CoordinatorLayout mainLayout = (CoordinatorLayout) findViewById(R.id.main_layout);
+
+        // скрыть навигационную панель
+        mainLayout.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_FULLSCREEN);
     }
-
 }

@@ -40,5 +40,6 @@
         <item name="android:textSize">9sp</item>
         <item name="android:textColor">@color/primary_text</item>
         <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/simple_rect</item>
     </style>
 </resources>

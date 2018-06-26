@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ua.energy.StationLayout
+<merge
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:id="@+id/luhansk">
+    android:id="@+id/layout_station">
 
     <!--FuelTable-->
     <TextView
+        android:id="@+id/column1"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -15,6 +16,7 @@
         style="@style/FuelTable"
         android:text="84.3"/>
     <TextView
+        android:id="@+id/column2"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -22,6 +24,7 @@
         style="@style/FuelTable"
         android:text="1.5"/>
     <TextView
+        android:id="@+id/column3"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -29,6 +32,7 @@
         style="@style/FuelTable"
         android:text="0"/>
     <TextView
+        android:id="@+id/column4"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -36,6 +40,7 @@
         android:text="ЛуТЭС"
         style="@style/FuelTable"/>
     <TextView
+        android:id="@+id/column5"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -43,6 +48,7 @@
         android:text="2"
         style="@style/FuelTable"/>
     <TextView
+        android:id="@+id/column6"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -52,83 +58,84 @@
 
     <!--BlockTable-->
     <TextView
+        android:id="@+id/block01"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
     <TextView
+        android:id="@+id/block02"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/block03"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:visibility="visible"/>
+    <ua.energy.CompoundBlock
+        android:id="@+id/block04"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+   <ua.energy.CompoundBlock
+       android:id="@+id/block05"
+       android:layout_width="0dp"
+       android:layout_weight="1"
+       android:layout_height="match_parent">
+   </ua.energy.CompoundBlock>
+      <TextView
+        android:id="@+id/block06"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+    <TextView
+        android:id="@+id/block07"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+    <TextView
+        android:id="@+id/block08"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
 
     <TextView
+        android:id="@+id/block09"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+    <TextView
+        android:id="@+id/block10"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
     <TextView
+        android:id="@+id/block11"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
     <TextView
+        android:id="@+id/block12"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
     <TextView
+        android:id="@+id/block13"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="126"/>
+    <TextView
+        android:id="@+id/block14"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
     <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
-
-
-    <TextView
+        android:id="@+id/block15"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        style="@style/Block"
-        android:background="@color/repair_cold_reserve"/>
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        style="@style/Block"
-        android:background="@color/repair_overhaul"/>
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        style="@style/Block"
-        android:background="@color/repair_cold_reserve"/>
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        style="@style/Block"
-        android:background="@color/repair_preservation"/>
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        style="@style/Block"
-        android:text="126"
-        android:background="@drawable/simple_rect"/>
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        style="@style/Block"
-        android:background="@color/repair_cold_reserve"/>
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        style="@style/Block"
-        android:background="@drawable/simple_rect"
         android:text="127"/>
-
-</ua.energy.StationLayout>
+</merge>
