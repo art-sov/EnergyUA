@@ -16,21 +16,50 @@ public class CompoundStation extends LinearLayout {
     private TextView column5;
     private TextView column6;
 
-    private TextView block01;
-    private TextView block02;
-    private TextView block03;
-    private CompoundBlock block04;
-    private CompoundBlock block05;
-    private TextView block06;
-    private TextView block07;
-    private TextView block08;
-    private TextView block09;
-    private TextView block10;
-    private TextView block11;
-    private TextView block12;
-    private TextView block13;
-    private TextView block14;
-    private TextView block15;
+    private TextView block01tv;
+    private CompoundBlock block01cb;
+
+    private TextView block02tv;
+    private CompoundBlock block02cb;
+
+    private TextView block03tv;
+    private CompoundBlock block03cb;
+
+    private TextView block04tv;
+    private CompoundBlock block04cb;
+
+    private TextView block05tv;
+    private CompoundBlock block05cb;
+
+    private TextView block06tv;
+    private CompoundBlock block06cb;
+
+    private TextView block07tv;
+    private CompoundBlock block07cb;
+
+    private TextView block08tv;
+    private CompoundBlock block08cb;
+
+    private TextView block09tv;
+    private CompoundBlock block09cb;
+
+    private TextView block10tv;
+    private CompoundBlock block10cb;
+
+    private TextView block11tv;
+    private CompoundBlock block11cb;
+
+    private TextView block12tv;
+    private CompoundBlock block12cb;
+
+    private TextView block13tv;
+    private CompoundBlock block13cb;
+
+    private TextView block14tv;
+    private CompoundBlock block14cb;
+
+    private TextView block15tv;
+    private CompoundBlock block15cb;
 
     public CompoundStation(Context context) {
         super(context);
@@ -64,20 +93,49 @@ public class CompoundStation extends LinearLayout {
         column5 = findViewById(R.id.column5);
         column6 = findViewById(R.id.column6);
 
-        block01 = findViewById(R.id.block01);
-        block02 = findViewById(R.id.block02);
-        block03 = findViewById(R.id.block03);
-        block04 = findViewById(R.id.block04);
-        block05 = findViewById(R.id.block05);
-        block06 = findViewById(R.id.block06);
-        block07 = findViewById(R.id.block07);
-        block08 = findViewById(R.id.block08);
-        block09 = findViewById(R.id.block09);
-        block10 = findViewById(R.id.block10);
-        block11 = findViewById(R.id.block11);
-        block12 = findViewById(R.id.block12);
-        block13 = findViewById(R.id.block13);
-        block14 = findViewById(R.id.block14);
-        block15 = findViewById(R.id.block15);
+        block01tv = findViewById(R.id.block01tv);
+        block01cb = findViewById(R.id.block01cb);
+
+        block02tv = findViewById(R.id.block02tv);
+        block02cb = findViewById(R.id.block02cb);
+
+        block03tv = findViewById(R.id.block03tv);
+        block03cb = findViewById(R.id.block03cb);
+
+        block04tv = findViewById(R.id.block04tv);
+        block04cb = findViewById(R.id.block04cb);
+
+        block06tv = findViewById(R.id.block05tv);
+        block06cb = findViewById(R.id.block05cb);
+
+        block07tv = findViewById(R.id.block07tv);
+        block07cb = findViewById(R.id.block07cb);
+
+        block08tv = findViewById(R.id.block08tv);
+        block08cb = findViewById(R.id.block08cb);
+
+        block09tv = findViewById(R.id.block09tv);
+        block09cb = findViewById(R.id.block09cb);
+
+        block10tv = findViewById(R.id.block10tv);
+        block10cb = findViewById(R.id.block10cb);
+
+        block11tv = findViewById(R.id.block11tv);
+        block11cb = findViewById(R.id.block11cb);
+
+        block12tv = findViewById(R.id.block12tv);
+        block12cb = findViewById(R.id.block12cb);
+
+        block13tv = findViewById(R.id.block13tv);
+        block13cb = findViewById(R.id.block13cb);
+
+        block14tv = findViewById(R.id.block14tv);
+        block14cb = findViewById(R.id.block14cb);
+
+        block15tv = findViewById(R.id.block15tv);
+        block15cb = findViewById(R.id.block15cb);
+
+        block01tv = findViewById(R.id.block01tv);
+        block01cb = findViewById(R.id.block01cb);
     }
 }
