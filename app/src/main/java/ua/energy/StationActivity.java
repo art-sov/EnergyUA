@@ -1,16 +1,22 @@
 package ua.energy;
 
-import android.app.Activity;
-import android.content.Context;
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.DatePicker;
+import android.widget.Toast;
+
+import java.util.Calendar;
+import java.util.Date;
 
 public class StationActivity extends AppCompatActivity {
+
+    DatePickerDialog dialog;
+    CoordinatorLayout mainLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,18 +25,41 @@ public class StationActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        mainLayout = (CoordinatorLayout) findViewById(R.id.main_layout);
+
+        Date date = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog.OnDateSetListener dialogListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                //TODO реализовать метод для установление текущей даты в запрос
+                Toast.makeText(getApplicationContext(), "Date: ", Toast.LENGTH_SHORT).show();
+
+            }
+        };
+
+        dialog = new DatePickerDialog(this, dialogListener, year, month, day);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_station);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                dialog.show();
+                // скрыть навигационную панель
+                mainLayout.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN);
             }
         });
 
         CompoundStation compoundStation = (CompoundStation)findViewById(R.id.station_layout01);
 
-        CoordinatorLayout mainLayout = (CoordinatorLayout) findViewById(R.id.main_layout);
 
         // скрыть навигационную панель
         mainLayout.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
