@@ -105,7 +105,7 @@ public class Station {
                 "\ngasValue: " + gasValue +
                 "\npower: " + power +
                 "\noch: " + och +
-                "\nunitValue: " + unitValue +
-                "\nBlocks: " + blockList.toString();
+                "\nunitValue: " + unitValue;
+                //"\nBlocks: " + blockList.toString();
     }
 }

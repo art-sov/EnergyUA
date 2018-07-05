@@ -6,12 +6,21 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import ua.energy.model.Station;
+import ua.energy.service.ServiceGenerator;
+import ua.energy.service.ServerAPI;
 
 public class StationActivity extends AppCompatActivity {
 
@@ -66,8 +75,31 @@ public class StationActivity extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_FULLSCREEN);
 
-        Parser parser = new Parser();
 
-        parser.loadJSONFromAsset(StationActivity.this);
+        //ручной парсинг JSON
+//        Parser parser = new Parser();
+//        parser.loadJSONFromAsset(StationActivity.this);
+
+        ServerAPI serverAPI = ServiceGenerator.createService(ServerAPI.class, "kmu", "EuroWind111");
+        serverAPI.getConditionStations("current").enqueue(new Callback<List<Station>>() {
+            @Override
+            public void onResponse(Call<List<Station>> call, Response<List<Station>> response) {
+                //Log.i("==========\n", response.body().toString());
+                List<Station> list = response.body();
+                Station station = list.get(4);
+                toaster(station.getName());
+            }
+
+            @Override
+            public void onFailure(Call<List<Station>> call, Throwable t) {
+                //Log.i("Из респонса: ", "Респонс не был получен");
+            }
+        });
+
+    }
+
+    public void toaster(String name) {
+        Toast.makeText(this, "Power station: " + name, Toast.LENGTH_SHORT).show();
+
     }
 }
