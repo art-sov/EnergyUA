@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/simple_rect"
+        android:maxLevel="0">
+    </item>
+    <item
+        android:drawable="@color/repair_medium"
+        android:maxLevel="1">
+    </item>
+    <item
+        android:drawable="@color/repair_reconstruction"
+        android:maxLevel="2">
+    </item>
+    <item
+        android:drawable="@color/repair_overhaul"
+        android:maxLevel="3">
+    </item>
+    <item
+        android:drawable="@color/repair_current_planed"
+        android:maxLevel="4">
+    </item>
+    <item
+        android:drawable="@color/repair_emergency"
+        android:maxLevel="5">
+    </item>
+    <item
+        android:drawable="@color/repair_preservation"
+        android:maxLevel="6">
+    </item>
+    <item
+        android:drawable="@color/repair_cold_reserve"
+        android:maxLevel="7">
+    </item>
+    <item
+        android:drawable="@color/repair_fuel_constraints"
+        android:maxLevel="8">
+    </item>
+    <item
+        android:drawable="@color/repair_operative"
+        android:maxLevel="8">
+    </item>
+</level-list>

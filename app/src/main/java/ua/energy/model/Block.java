@@ -28,6 +28,26 @@ public class Block {
         this.unit2 = unit2;
     }
 
+    public int getStationCode() {
+        return stationCode;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public int getPower() {
+        return power;
+    }
+
+    public Unit getUnit1() {
+        return unit1;
+    }
+
+    public Unit getUnit2() {
+        return unit2;
+    }
+
     @Override
     public String toString() {
         return "\nstationCode: " + stationCode +

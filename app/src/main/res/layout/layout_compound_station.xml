@@ -14,8 +14,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="@drawable/simple_rect"
-        style="@style/FuelTable"
-        android:text="84.3"/>
+        style="@style/FuelTable"/>
 
     <TextView
         android:id="@+id/column2"
@@ -23,23 +22,20 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="@drawable/simple_rect"
-        style="@style/FuelTable"
-        android:text="1.5"/>
+        style="@style/FuelTable"/>
     <TextView
         android:id="@+id/column3"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="@drawable/simple_rect"
-        style="@style/FuelTable"
-        android:text="0"/>
+        style="@style/FuelTable"/>
     <TextView
         android:id="@+id/column4"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="@drawable/simple_rect"
-        android:text="ЛуТЭС"
         style="@style/FuelTable"/>
     <TextView
         android:id="@+id/column5"
@@ -47,7 +43,6 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="@drawable/simple_rect"
-        android:text="2"
         style="@style/FuelTable"/>
     <TextView
         android:id="@+id/column6"
@@ -55,12 +50,10 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="@drawable/simple_rect"
-        style="@style/FuelTable"
-        android:text="253"/>
+        style="@style/FuelTable" />
 
     <!--BlockTable-->
     <TextView
-        style="@style/Block"
         android:id="@+id/block01tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -74,7 +67,6 @@
 
 
     <TextView
-        style="@style/Block"
         android:id="@+id/block02tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -88,7 +80,6 @@
 
 
     <TextView
-        style="@style/Block"
         android:id="@+id/block03tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -101,7 +92,6 @@
         android:layout_height="match_parent"/>
 
     <TextView
-        style="@style/Block"
         android:id="@+id/block04tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -114,23 +104,18 @@
         android:layout_height="match_parent"/>
 
     <TextView
-        style="@style/Block"
-           android:visibility="gone"
         android:id="@+id/block05tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
     <ua.energy.CompoundBlock
-        android:layout_marginBottom="2dp"
-        android:layout_marginEnd="2dp"
-        android:visibility="visible"
+        android:visibility="gone"
         android:id="@+id/block05cb"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="match_parent"/>
 
     <TextView
-        style="@style/Block"
         android:id="@+id/block06tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -143,16 +128,12 @@
         android:layout_height="match_parent"/>
 
     <TextView
-        style="@style/Block"
-        android:visibility="gone"
         android:id="@+id/block07tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
     <ua.energy.CompoundBlock
-        android:layout_marginBottom="2dp"
-        android:layout_marginEnd="2dp"
-        android:visibility="visible"
+        android:visibility="gone"
         android:id="@+id/block07cb"
         android:layout_width="0dp"
         android:layout_weight="1"
@@ -160,7 +141,6 @@
 
 
     <TextView
-        style="@style/Block"
         android:id="@+id/block08tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -174,13 +154,10 @@
 
 
     <TextView
-
         android:id="@+id/block09tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:text="133"
-        style="@style/Block" />
+        android:layout_weight="1"/>
     <ua.energy.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block09cb"
@@ -193,9 +170,7 @@
         android:id="@+id/block10tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        style="@style/Block"
-        android:background="@color/repair_overhaul" />
+        android:layout_weight="1"/>
     <ua.energy.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block10cb"
@@ -208,9 +183,7 @@
         android:id="@+id/block11tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        style="@style/Block"
-        android:background="@color/repair_cold_reserve"/>
+        android:layout_weight="1" />
     <ua.energy.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block11cb"
@@ -223,9 +196,7 @@
         android:id="@+id/block12tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        style="@style/Block"
-        android:background="@color/repair_preservation"/>
+        android:layout_weight="1"/>
     <ua.energy.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block12cb"
@@ -238,9 +209,7 @@
         android:id="@+id/block13tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        style="@style/Block"
-        android:text="130"/>
+        android:layout_weight="1"/>
     <ua.energy.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block13cb"
@@ -253,8 +222,7 @@
         android:id="@+id/block14tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        style="@style/Block" />
+        android:layout_weight="1"/>
     <ua.energy.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block14cb"
@@ -267,9 +235,7 @@
         android:id="@+id/block15tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        style="@style/Block"
-        android:background="@color/repair_cold_reserve"/>
+        android:layout_weight="1"/>
     <ua.energy.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block15cb"

@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
+            //TODO сделать правильный интент
             Intent intent = new Intent(MainActivity.this, StationActivity.class);
             startActivity(intent);
 

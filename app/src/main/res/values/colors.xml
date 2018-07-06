@@ -20,4 +20,5 @@
     <color name="repair_preservation">#3b7f7f</color>
     <color name="repair_cold_reserve">#bfbfbf</color>
     <color name="repair_fuel_constraints">#ffff4a</color>
+    <color name="repair_operative">#ffffff</color>
 </resources>

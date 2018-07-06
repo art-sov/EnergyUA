@@ -43,4 +43,32 @@ public class CompoundBlock extends LinearLayout {
         unit2 = findViewById(R.id.tv_unit2);
         unit3 = findViewById(R.id.tv_unit3);
     }
+
+    public void updateCompountBlock(CompoundBlock block) {
+        //TODO написать
+    }
+
+    public TextView getUnit1() {
+        return unit1;
+    }
+
+    public void setUnit1(TextView unit1) {
+        this.unit1 = unit1;
+    }
+
+    public TextView getUnit2() {
+        return unit2;
+    }
+
+    public void setUnit2(TextView unit2) {
+        this.unit2 = unit2;
+    }
+
+    public TextView getUnit3() {
+        return unit3;
+    }
+
+    public void setUnit3(TextView unit3) {
+        this.unit3 = unit3;
+    }
 }
