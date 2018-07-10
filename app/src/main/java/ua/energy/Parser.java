@@ -15,9 +15,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import ua.energy.model.Block;
-import ua.energy.model.Station;
-import ua.energy.model.Unit;
+import ua.energy.entity.Block;
+import ua.energy.entity.Station;
+import ua.energy.entity.Unit;
 
 public class Parser {
 

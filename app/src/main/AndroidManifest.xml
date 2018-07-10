@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".StationActivity"
+            android:name=".view.StationActivity"
             android:label="@string/title_activity_station"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>

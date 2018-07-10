@@ -1,4 +1,4 @@
-package ua.energy;
+package ua.energy.view;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -18,15 +18,22 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import ua.energy.model.Block;
-import ua.energy.model.Station;
+import ua.energy.CompoundStation;
+import ua.energy.R;
+import ua.energy.entity.Block;
+import ua.energy.entity.Station;
+import ua.energy.model.StationModel;
+import ua.energy.presenter.StationPresenter;
 import ua.energy.service.ServiceGenerator;
 import ua.energy.service.ServerAPI;
 
-public class StationActivity extends AppCompatActivity {
+public class StationActivity extends AppCompatActivity implements StationContractView {
 
     DatePickerDialog dialog;
     CoordinatorLayout mainLayout;
+
+    StationPresenter mPresenter;
+    StationModel mModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,63 +81,25 @@ public class StationActivity extends AppCompatActivity {
 //        Parser parser = new Parser();
 //        parser.loadJSONFromAsset(StationActivity.this);
 
-        ServerAPI serverAPI = ServiceGenerator.createService(ServerAPI.class, "kmu", "EuroWind111");
-        serverAPI.getConditionStations("current").enqueue(new Callback<List<Station>>() {
-            @Override
-            public void onResponse(Call<List<Station>> call, Response<List<Station>> response) {
-                //Log.i("==========\n", response.body().toString());
-                List<Station> list = response.body();
-                updateStationContent(list);
-                //toaster(station.getName());
-            }
 
-            @Override
-            public void onFailure(Call<List<Station>> call, Throwable t) {
-                //Log.i("Из респонса: ", "Респонс не был получен");
-            }
-        });
-
+        init();
     }
 
-    public void updateStationContent(List<Station> stationList) {
-
-        int i = 0;
-        List<CompoundStation> compoundStationList = createCompoundStationList();
-
-        for (Station station: stationList){
-            if (station.getName() != null) {
-
-                CompoundStation compoundStation = compoundStationList.get(i);
-
-                String coalValue = Float.toString(station.getCoalValue());
-                compoundStation.getColumn1().setText(coalValue);
-
-                String oilValue = Float.toString(station.getOilValue());
-                compoundStation.getColumn2().setText(oilValue);
-
-                String gasValue = Float.toString(station.getGasValue());
-                compoundStation.getColumn3().setText(gasValue);
-
-                compoundStation.getColumn4().setText("ЛуТЭС");
-
-                compoundStation.getColumn5().setText(station.getUnitValue());
-
-                String power = Integer.toString((int)station.getPower());
-                compoundStation.getColumn6().setText(power);
-
-                List<Block> blockList = station.getBlockList();
-
-                  i++;
-            }
-        }
-
+    private void init() {
+        mModel = new StationModel();
+        mPresenter = new StationPresenter(mModel);
+        mPresenter.attachView(this);
+        mPresenter.viewIsReady();
     }
 
-    private void setContentBlock(List<Block> blockList) {
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mPresenter.detachView();
     }
 
-    private List<CompoundStation> createCompoundStationList(){
+    @Override
+    public List<CompoundStation> createCompoundStationList(){
 
         //TODO использовать библиотеку ButterKnife
         List<CompoundStation> compoundStationList = new ArrayList<>();
@@ -199,5 +168,23 @@ public class StationActivity extends AppCompatActivity {
         compoundStationList.add(compoundStation21);
 
         return compoundStationList;
+    }
+
+    @Override
+    public void showStation(List<Station> list) {
+        //todo реализовать метод
+    }
+
+    @Override
+    public void setFuelContent(CompoundStation compoundStation, String coalValue, String oilValue,
+                               String gasValue, String shortName, String unitValue, String power){
+
+        compoundStation.getColumn1().setText(coalValue);
+        compoundStation.getColumn2().setText(coalValue);
+        compoundStation.getColumn3().setText(oilValue);
+        compoundStation.getColumn4().setText(shortName);
+        compoundStation.getColumn5().setText(unitValue);
+        compoundStation.getColumn6().setText(power);
+
     }
 }
