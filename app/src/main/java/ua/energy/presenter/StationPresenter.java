@@ -24,11 +24,11 @@ public class StationPresenter {
     public void viewIsReady(){
 
         //загрузка данных с сервера
-        List<Station> stationList = model.loadStations();
+        model.loadStations();
 
         List<CompoundStation> compoundStationList = view.createCompoundStationList();
 
-        updateStationContent(stationList, compoundStationList);
+        //updateStationContent(stationList, compoundStationList);
 
         //view.showStation(stationList);
     }

@@ -14,19 +14,23 @@ import ua.energy.service.ServiceGenerator;
 
 public class StationModel {
 
-    private List<Station> mList;
 
     //загрузка данных с сервера
-    public List<Station> loadStations() {
+    public void loadStations() {
 
         ServerAPI serverAPI = ServiceGenerator.createService(ServerAPI.class, "kmu", "EuroWind111");
 
         serverAPI.getConditionStations("current").enqueue(new Callback<List<Station>>() {
 
+
             @Override
             public void onResponse(Call<List<Station>> call, Response<List<Station>> response) {
-                Log.i("==========\n", response.body().toString());
-                mList = response.body();
+
+                //Log.i("==========\n", response.body().toString());
+                List<Station> list = response.body();
+                Log.i("RESPONCE===\n", list.toString());
+
+
             }
 
             @Override
@@ -34,6 +38,5 @@ public class StationModel {
                 //Log.i("Из респонса: ", "Респонс не был получен");
             }
         });
-        return mList;
     }
 }
