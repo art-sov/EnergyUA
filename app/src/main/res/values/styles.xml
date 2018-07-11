@@ -37,10 +37,10 @@
 
     <!--style for block table-->
     <style name="Block">
-        <item name="android:textSize">9sp</item>
+        <item name="android:textSize">11sp</item>
         <item name="android:textColor">@color/primary_text</item>
         <item name="android:gravity">center</item>
-        <item name="android:background">@drawable/simple_rect</item>
+        <!--<item name="android:background">@drawable/simple_rect</item>-->
         <item name="android:elevation">8dp</item>
         <!--<item name="android:layout_marginBottom">2dp</item>-->
         <!--<item name="android:layout_marginEnd">2dp</item>-->

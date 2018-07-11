@@ -12,7 +12,7 @@ public class Station {
     private float power;
     private int och;
     private String unitValue;
-    private List<Block> blockList;
+    private List<Block> blockDtoList;
 
 
     public int getId() {
@@ -88,11 +88,11 @@ public class Station {
     }
 
     public List<Block> getBlockList() {
-        return blockList;
+        return blockDtoList;
     }
 
-    public void setBlockList(List<Block> blockList) {
-        this.blockList = blockList;
+    public void setBlockList(List<Block> blockDtoList) {
+        this.blockDtoList = blockDtoList;
     }
 
     @Override
@@ -105,7 +105,7 @@ public class Station {
                 "\ngasValue: " + gasValue +
                 "\npower: " + power +
                 "\noch: " + och +
-                "\nunitValue: " + unitValue;
-                //"\nBlocks: " + blockList.toString();
+                "\nunitValue: " + unitValue +
+                "\nBlocks: " + blockDtoList.toString();
     }
 }

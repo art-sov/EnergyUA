@@ -7,12 +7,12 @@ import ua.energy.entity.Station;
 
 public interface StationContractView {
 
-    void showStation(List<Station> list);
-
     List<CompoundStation> createCompoundStationList();
 
-    void setFuelContent(CompoundStation compoundStation, String coalValue,
+    void setFuelContent(int index, String coalValue,
                         String oilValue, String gasValue, String shortName, String unitValue,
                         String power);
+
+    void setBlockContent(int index, int numberBlock, String powerBlock);
 
 }

@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -15,25 +16,18 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import ua.energy.CompoundStation;
+import ua.energy.MasterMVP;
 import ua.energy.R;
-import ua.energy.entity.Block;
-import ua.energy.entity.Station;
 import ua.energy.model.StationModel;
 import ua.energy.presenter.StationPresenter;
-import ua.energy.service.ServiceGenerator;
-import ua.energy.service.ServerAPI;
 
 public class StationActivity extends AppCompatActivity implements StationContractView {
 
     DatePickerDialog dialog;
     CoordinatorLayout mainLayout;
-
+    List<CompoundStation> compoundStationList;
     StationPresenter mPresenter;
-    StationModel mModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,13 +75,12 @@ public class StationActivity extends AppCompatActivity implements StationContrac
 //        Parser parser = new Parser();
 //        parser.loadJSONFromAsset(StationActivity.this);
 
-
         init();
     }
 
     private void init() {
-        mModel = new StationModel();
-        mPresenter = new StationPresenter(mModel);
+
+        mPresenter = new StationPresenter();
         mPresenter.attachView(this);
         mPresenter.viewIsReady();
     }
@@ -102,7 +95,7 @@ public class StationActivity extends AppCompatActivity implements StationContrac
     public List<CompoundStation> createCompoundStationList(){
 
         //TODO использовать библиотеку ButterKnife
-        List<CompoundStation> compoundStationList = new ArrayList<>();
+        compoundStationList = new ArrayList<>();
 
         CompoundStation compoundStation1 = (CompoundStation)findViewById(R.id.station_layout01);
         compoundStationList.add(compoundStation1);
@@ -170,21 +163,81 @@ public class StationActivity extends AppCompatActivity implements StationContrac
         return compoundStationList;
     }
 
+
     @Override
-    public void showStation(List<Station> list) {
-        //todo реализовать метод
+    public void setFuelContent(int index, String coalValue, String oilValue,
+                               String gasValue, String shortName, String unitValue, String power){
+        compoundStationList.get(index).getColumn1().setText(coalValue);
+        compoundStationList.get(index).getColumn2().setText(oilValue);
+        compoundStationList.get(index).getColumn3().setText(gasValue);
+        compoundStationList.get(index).getColumn4().setText(shortName);
+        compoundStationList.get(index).getColumn5().setText(unitValue);
+        compoundStationList.get(index).getColumn6().setText(power);
+
     }
 
     @Override
-    public void setFuelContent(CompoundStation compoundStation, String coalValue, String oilValue,
-                               String gasValue, String shortName, String unitValue, String power){
+    public void setBlockContent(int index, int numberBlock, String power) {
 
-        compoundStation.getColumn1().setText(coalValue);
-        compoundStation.getColumn2().setText(coalValue);
-        compoundStation.getColumn3().setText(oilValue);
-        compoundStation.getColumn4().setText(shortName);
-        compoundStation.getColumn5().setText(unitValue);
-        compoundStation.getColumn6().setText(power);
+        TextView textView = getTextView(index, numberBlock);
 
+        textView.setBackground(getDrawable(R.drawable.simple_rect));
+
+        if (!power.equals("0"))
+            textView.setText(power);
+    }
+
+    public TextView getTextView(int index, int numberBlock){
+
+        TextView textView = null;
+
+        switch (numberBlock){
+            case 1:
+                textView = compoundStationList.get(index).getBlock01tv();
+                break;
+            case 2:
+                textView = compoundStationList.get(index).getBlock02tv();
+                break;
+            case 3:
+                textView = compoundStationList.get(index).getBlock03tv();
+                break;
+            case 4:
+                textView = compoundStationList.get(index).getBlock04tv();
+                break;
+            case 5:
+                textView = compoundStationList.get(index).getBlock05tv();
+                break;
+            case 6:
+                textView = compoundStationList.get(index).getBlock06tv();
+                break;
+            case 7:
+                textView = compoundStationList.get(index).getBlock07tv();
+                break;
+            case 8:
+                textView = compoundStationList.get(index).getBlock08tv();
+                break;
+            case 9:
+                textView = compoundStationList.get(index).getBlock09tv();
+                break;
+            case 10:
+                textView = compoundStationList.get(index).getBlock10tv();
+                break;
+            case 11:
+                textView = compoundStationList.get(index).getBlock11tv();
+                break;
+            case 12:
+                textView = compoundStationList.get(index).getBlock12tv();
+                break;
+            case 13:
+                textView = compoundStationList.get(index).getBlock13tv();
+                break;
+            case 14:
+                textView = compoundStationList.get(index).getBlock14tv();
+                break;
+            case 15:
+                textView = compoundStationList.get(index).getBlock15tv();
+                break;
+        }
+        return textView;
     }
 }

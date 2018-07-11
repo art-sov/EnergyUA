@@ -1,70 +1,92 @@
 package ua.energy.presenter;
 
+import android.util.Log;
+
 import java.util.List;
 
-import ua.energy.CompoundStation;
 import ua.energy.entity.Block;
+import ua.energy.entity.ShortNameStation;
 import ua.energy.entity.Station;
 import ua.energy.model.StationModel;
 import ua.energy.view.StationContractView;
 
-public class StationPresenter {
+public class StationPresenter implements StationContractModel {
 
     private StationContractView view;
     private final StationModel model;
 
-    public StationPresenter(StationModel model) {
-        this.model = model;
+    public StationPresenter() {
+        model = new StationModel();
     }
 
     public void attachView(StationContractView view) {
         this.view = view;
     }
 
-    public void viewIsReady(){
-
-        //загрузка данных с сервера
-        model.loadStations();
-
-        List<CompoundStation> compoundStationList = view.createCompoundStationList();
-
-        //updateStationContent(stationList, compoundStationList);
-
-        //view.showStation(stationList);
-    }
-
     public void detachView() {
         view = null;
     }
 
-    public void updateStationContent(List<Station> stationList, List<CompoundStation> compoundStationList) {
+    public void viewIsReady(){
 
-        int i = 0;
+        //создания списка строк таблицы
+        view.createCompoundStationList();
 
-        for (Station station: stationList){
+        //загрузка данных с сервера
+        model.loadStations(this);
+
+    }
+
+    public void updateStationContent(List<Station> list) {
+        //todo исключить мироновскую ТЭС, Эсхар и добавить Старобешевскую
+        int index = 0;
+        ShortNameStation shortNameStation = new ShortNameStation();
+        for (Station station: list){
             if (station.getName() != null) {
 
-                CompoundStation compoundStation = compoundStationList.get(i);
+                String coalValue = getValue(station.getCoalValue());
 
-                String coalValue = Float.toString(station.getCoalValue());
+                String oilValue = getValue(station.getOilValue());
 
-                String oilValue = Float.toString(station.getOilValue());
+                String gasValue = getValue(station.getGasValue());
 
-                String gasValue = Float.toString(station.getGasValue());
-
-                String shortName = "ЛуТЭС";
+                String shortName = ShortNameStation.getShortName(station.getName());
 
                 String unitValue = station.getUnitValue();
 
                 String power = Integer.toString((int)station.getPower());
 
-                view.setFuelContent(compoundStation, coalValue, oilValue, gasValue, shortName, unitValue, power);
+                view.setFuelContent(index, coalValue, oilValue, gasValue,
+                        shortName, unitValue, power);
 
+                //todo реализовать получение списка блоков
                 List<Block> blockList = station.getBlockList();
 
-                i++;
+                for (Block block: blockList) {
+                    int numberBlock = block.getNumber();
+                    String powerBlock = Integer.toString(block.getPower());
+                    view.setBlockContent(index, numberBlock, powerBlock);
+
+                }
+
+                index++;
             }
         }
 
+    }
+
+    private String getValue (float valueFloat){
+
+        if (valueFloat == 0)
+            return "0";
+        return Float.toString(valueFloat);
+    }
+
+//================================================================
+    //методы обратного вызова
+    @Override
+    public void loadStationList(List<Station> list) {
+
+        updateStationContent(list);
     }
 }
