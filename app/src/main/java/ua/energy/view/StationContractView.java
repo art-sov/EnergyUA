@@ -13,6 +13,8 @@ public interface StationContractView {
                         String oilValue, String gasValue, String shortName, String unitValue,
                         String power);
 
-    void setBlockContent(int index, int numberBlock, String powerBlock);
+    void setBlockContent(int index, int numberBlock, String powerBlock, int repairStatus);
 
+    void setCompoundBlockContent(int index, int numberBlock, String powerBlock, int repairStatus1,
+                                int repairStatus2);
 }

@@ -39,6 +39,6 @@
     </item>
     <item
         android:drawable="@color/repair_operative"
-        android:maxLevel="8">
+        android:maxLevel="9">
     </item>
 </level-list>

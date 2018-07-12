@@ -5,8 +5,10 @@ import android.util.Log;
 import java.util.List;
 
 import ua.energy.entity.Block;
+import ua.energy.entity.ColorRepair;
 import ua.energy.entity.ShortNameStation;
 import ua.energy.entity.Station;
+import ua.energy.entity.Unit;
 import ua.energy.model.StationModel;
 import ua.energy.view.StationContractView;
 
@@ -41,6 +43,7 @@ public class StationPresenter implements StationContractModel {
         //todo исключить мироновскую ТЭС, Эсхар и добавить Старобешевскую
         int index = 0;
         ShortNameStation shortNameStation = new ShortNameStation();
+        ColorRepair colorRepair = new ColorRepair();
         for (Station station: list){
             if (station.getName() != null) {
 
@@ -63,16 +66,71 @@ public class StationPresenter implements StationContractModel {
                 List<Block> blockList = station.getBlockList();
 
                 for (Block block: blockList) {
+
                     int numberBlock = block.getNumber();
                     String powerBlock = Integer.toString(block.getPower());
-                    view.setBlockContent(index, numberBlock, powerBlock);
 
+                    Unit unit1 = block.getUnit1();
+                    Unit unit2 = block.getUnit2();
+
+                    if (unit2 == null) {
+
+                        int repairStatus = 0;
+                        if (unit1.getColor() != null){
+                            repairStatus = ColorRepair.getNumberColor(unit1.getColor());
+                        }
+
+                        String statusShortName = unit1.getStatusShortName();
+                        String statusFullName = unit1.getStatusFullName();
+                        String repairStartTime = unit1.getRepairStartTime();
+                        String repairEndTime = unit1.getRepairEndTime();
+                        String comment = unit1.getComment();
+                        String operator = unit1.getOperator();
+                        String editTime = unit1.getEditTime();
+                        String name = unit1.getName();
+
+                        //todo реализовать класс для подробной информации о ремонте
+
+                        view.setBlockContent(index, numberBlock, powerBlock, repairStatus);
+
+                    }
+                    else {
+
+                        int repairStatus1 = 0;
+                        int repairStatus2 = 0;
+
+                        if (unit1.getColor() != null) {
+                            repairStatus1 = ColorRepair.getNumberColor(unit1.getColor());
+                        }
+
+                        String statusShortName1 = unit1.getStatusShortName();
+                        String statusFullName1 = unit1.getStatusFullName();
+                        String repairStartTime1 = unit1.getRepairStartTime();
+                        String repairEndTime1 = unit1.getRepairEndTime();
+                        String comment1 = unit1.getComment();
+                        String operator1 = unit1.getOperator();
+                        String editTime1 = unit1.getEditTime();
+                        String name1 = unit1.getName();
+
+                        if (unit2.getColor() != null) {
+                            repairStatus2 = ColorRepair.getNumberColor(unit2.getColor());
+                        }
+
+                        String statusShortName2 = unit2.getStatusShortName();
+                        String statusFullName2 = unit2.getStatusFullName();
+                        String repairStartTime2 = unit2.getRepairStartTime();
+                        String repairEndTime2 = unit2.getRepairEndTime();
+                        String comment2 = unit2.getComment();
+                        String operator2 = unit2.getOperator();
+                        String editTime2 = unit2.getEditTime();
+                        String name2 = unit2.getName();
+
+                        view.setCompoundBlockContent(index, numberBlock, powerBlock, repairStatus1, repairStatus2);
+                    }
                 }
-
                 index++;
             }
         }
-
     }
 
     private String getValue (float valueFloat){

@@ -37,6 +37,5 @@
         android:layout_weight="65"
         android:layout_width="0dp"
         android:gravity="center"
-        android:text="341"
         style="@style/unit"/>
 </merge>

@@ -92,4 +92,72 @@ public class Unit {
     public void setWorkUnit(float workUnit) {
         this.workUnit = workUnit;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getPower() {
+        return power;
+    }
+
+    public int getTi() {
+        return ti;
+    }
+
+    public int getBlockNumber() {
+        return blockNumber;
+    }
+
+    public int getStationCode() {
+        return stationCode;
+    }
+
+    public String getStation() {
+        return station;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getStatusShortName() {
+        return statusShortName;
+    }
+
+    public String getStatusFullName() {
+        return statusFullName;
+    }
+
+    public String getRepairStartTime() {
+        return repairStartTime;
+    }
+
+    public String getRepairEndTime() {
+        return repairEndTime;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public String getOperator() {
+        return operator;
+    }
+
+    public String getEditTime() {
+        return editTime;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public int getOch() {
+        return och;
+    }
+
+    public float getWorkUnit() {
+        return workUnit;
+    }
 }

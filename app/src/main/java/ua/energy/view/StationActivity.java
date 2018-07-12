@@ -1,6 +1,7 @@
 package ua.energy.view;
 
 import android.app.DatePickerDialog;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -16,6 +17,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import ua.energy.CompoundBlock;
 import ua.energy.CompoundStation;
 import ua.energy.MasterMVP;
 import ua.energy.R;
@@ -69,11 +71,6 @@ public class StationActivity extends AppCompatActivity implements StationContrac
         mainLayout.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_FULLSCREEN);
-
-
-        //ручной парсинг JSON
-//        Parser parser = new Parser();
-//        parser.loadJSONFromAsset(StationActivity.this);
 
         init();
     }
@@ -177,14 +174,119 @@ public class StationActivity extends AppCompatActivity implements StationContrac
     }
 
     @Override
-    public void setBlockContent(int index, int numberBlock, String power) {
+    public void setBlockContent(int index, int numberBlock, String power, int repairStatus) {
 
         TextView textView = getTextView(index, numberBlock);
 
-        textView.setBackground(getDrawable(R.drawable.simple_rect));
-
-        if (!power.equals("0"))
+        if (Integer.parseInt(power) > 10)
             textView.setText(power);
+
+        if (repairStatus != 0){
+            Drawable drawable = getDrawable(repairStatus);
+            textView.setBackground(drawable);
+        }
+        else {
+            textView.setBackground(getDrawable(R.drawable.simple_rect));
+
+        }
+    }
+
+    @Override
+    public void setCompoundBlockContent(int index, int numberBlock, String powerBlock,
+                                        int repairStatus1, int repairStatus2) {
+
+        Drawable drawableSimpleRect = getDrawable(R.drawable.simple_rect);
+
+        TextView textView = getTextView(index, numberBlock);
+        textView.setVisibility(View.GONE);
+
+        CompoundBlock compoundBlock = getCompoundBlock(index, numberBlock);
+        compoundBlock.setVisibility(View.VISIBLE);
+
+        TextView textViewUnit1 = compoundBlock.getUnit1();
+        TextView textViewUnit2 = compoundBlock.getUnit2();
+        TextView textViewUnit3 = compoundBlock.getUnit3();
+
+        if (repairStatus1 != 0) {
+            Drawable drawable = getDrawable(repairStatus1);
+            textViewUnit1.setBackground(drawable);
+        }
+        else {
+            textViewUnit1.setBackground(drawableSimpleRect);
+        }
+
+        if (repairStatus2 != 0) {
+            Drawable drawable = getDrawable(repairStatus2);
+            textViewUnit2.setBackground(drawable);
+        }
+        else {
+            textViewUnit2.setBackground(drawableSimpleRect);
+        }
+
+        textViewUnit3.setBackground(drawableSimpleRect);
+
+        if (Integer.parseInt(powerBlock) > 10){
+            textViewUnit3.setText(powerBlock);
+        }
+
+        if (repairStatus1 != 0 && repairStatus2 != 0 && repairStatus1 == repairStatus2){
+            Drawable drawable = getDrawable(repairStatus1);
+            textViewUnit3.setBackground(drawable);
+        }
+    }
+
+    private CompoundBlock getCompoundBlock(int index, int numberBlock) {
+
+        CompoundBlock compoundBlock = null;
+
+        switch (numberBlock){
+            case 1:
+                compoundBlock = compoundStationList.get(index).getBlock01cb();
+                break;
+            case 2:
+                compoundBlock = compoundStationList.get(index).getBlock02cb();
+                break;
+            case 3:
+                compoundBlock = compoundStationList.get(index).getBlock03cb();
+                break;
+            case 4:
+                compoundBlock = compoundStationList.get(index).getBlock04cb();
+                break;
+            case 5:
+                compoundBlock = compoundStationList.get(index).getBlock05cb();
+                break;
+            case 6:
+                compoundBlock = compoundStationList.get(index).getBlock06cb();
+                break;
+            case 7:
+                compoundBlock = compoundStationList.get(index).getBlock07cb();
+                break;
+            case 8:
+                compoundBlock = compoundStationList.get(index).getBlock08cb();
+                break;
+            case 9:
+                compoundBlock = compoundStationList.get(index).getBlock09cb();
+                break;
+            case 10:
+                compoundBlock = compoundStationList.get(index).getBlock10cb();
+                break;
+            case 11:
+                compoundBlock = compoundStationList.get(index).getBlock11cb();
+                break;
+            case 12:
+                compoundBlock = compoundStationList.get(index).getBlock12cb();
+                break;
+            case 13:
+                compoundBlock = compoundStationList.get(index).getBlock13cb();
+                break;
+            case 14:
+                compoundBlock = compoundStationList.get(index).getBlock14cb();
+                break;
+            case 15:
+                compoundBlock = compoundStationList.get(index).getBlock15cb();
+                break;
+        }
+        return  compoundBlock;
     }
 
     public TextView getTextView(int index, int numberBlock){
