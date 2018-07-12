@@ -2,6 +2,8 @@ package ua.energy.presenter;
 
 import android.util.Log;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import ua.energy.entity.Block;
@@ -62,7 +64,6 @@ public class StationPresenter implements StationContractModel {
                 view.setFuelContent(index, coalValue, oilValue, gasValue,
                         shortName, unitValue, power);
 
-                //todo реализовать получение списка блоков
                 List<Block> blockList = station.getBlockList();
 
                 for (Block block: blockList) {
@@ -146,5 +147,29 @@ public class StationPresenter implements StationContractModel {
     public void loadStationList(List<Station> list) {
 
         updateStationContent(list);
+    }
+
+    //пользователь выбрал дату
+    public void dateSelected(int year, int month, int dayOfMonth) {
+
+        Calendar calendar = Calendar.getInstance();
+        Calendar selectedCalendar = Calendar.getInstance();
+        selectedCalendar.set(year, month, dayOfMonth);
+
+        //todo реализовать progress bar
+        if (selectedCalendar.after(calendar)) {
+            view.showToast("Необходимо выбрать дату на день меньше текущей");
+            view.updateUI();
+            model.saveDate("current");
+            model.loadStations(this);}
+
+        else {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
+            String date = simpleDateFormat.format(selectedCalendar.getTime());
+            Log.i("!!!!!!!Date: ", date);
+            model.saveDate(date);
+            view.updateUI();
+            model.loadStations(this);
+        }
     }
 }

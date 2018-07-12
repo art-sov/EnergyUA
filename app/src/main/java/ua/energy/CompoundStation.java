@@ -138,8 +138,59 @@ public class CompoundStation extends LinearLayout {
         block15tv = findViewById(R.id.block15tv);
         block15cb = findViewById(R.id.block15cb);
 
-        block01tv = findViewById(R.id.block01tv);
-        block01cb = findViewById(R.id.block01cb);
+    }
+
+    public void clearView(){
+
+        clearTextView(block01tv);
+        clearTextView(block02tv);
+        clearTextView(block03tv);
+        clearTextView(block04tv);
+        clearTextView(block05tv);
+        clearTextView(block06tv);
+        clearTextView(block07tv);
+        clearTextView(block08tv);
+        clearTextView(block09tv);
+        clearTextView(block10tv);
+        clearTextView(block11tv);
+        clearTextView(block12tv);
+        clearTextView(block13tv);
+        clearTextView(block14tv);
+        clearTextView(block15tv);
+
+        clearCompoundBlock(block01cb);
+        clearCompoundBlock(block02cb);
+        clearCompoundBlock(block03cb);
+        clearCompoundBlock(block04cb);
+        clearCompoundBlock(block05cb);
+        clearCompoundBlock(block06cb);
+        clearCompoundBlock(block07cb);
+        clearCompoundBlock(block08cb);
+        clearCompoundBlock(block09cb);
+        clearCompoundBlock(block10cb);
+        clearCompoundBlock(block11cb);
+        clearCompoundBlock(block12cb);
+        clearCompoundBlock(block13cb);
+        clearCompoundBlock(block14cb);
+        clearCompoundBlock(block15cb);
+    }
+
+    public void clearTextView(TextView textView){
+        textView.setText("");
+        textView.setBackgroundResource(0);
+        textView.setVisibility(VISIBLE);
+    }
+
+    public void clearCompoundBlock(CompoundBlock compoundBlock){
+        TextView textView1 = compoundBlock.getUnit1();
+        TextView textView2 = compoundBlock.getUnit2();
+        TextView textView3 = compoundBlock.getUnit3();
+
+        clearTextView(textView1);
+        clearTextView(textView2);
+        clearTextView(textView3);
+
+        compoundBlock.setVisibility(GONE);
     }
 
     public TextView getColumn1() {

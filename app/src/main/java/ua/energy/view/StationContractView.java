@@ -17,4 +17,8 @@ public interface StationContractView {
 
     void setCompoundBlockContent(int index, int numberBlock, String powerBlock, int repairStatus1,
                                 int repairStatus2);
+
+    void showToast(String message);
+
+    void updateUI();
 }

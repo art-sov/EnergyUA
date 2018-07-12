@@ -10,24 +10,24 @@ public class ShortNameStation {
     public ShortNameStation() {
         mapShortNameStation = new HashMap<>();
 
-        mapShortNameStation.put("Луганская ТЭС", "ЛуТЭС");
-        mapShortNameStation.put("Славянская ТЭС", "СлТЭС");
-        mapShortNameStation.put("Мироновская ТЭС", "МиТЭС");
-        mapShortNameStation.put("Углегорская ТЭС", "УТЭС");
-        mapShortNameStation.put("Кураховская ТЭС", "КуТЭС");
-        mapShortNameStation.put("Зуевская ТЭС", "ЗуТЭС");
-        mapShortNameStation.put("Криворожская ТЭС", "КрТЭС");
-        mapShortNameStation.put("Приднепровская ТЭС", "ПдТЭС");
-        mapShortNameStation.put("Запорожская ТЭС", "ЗаТЭС");
-        mapShortNameStation.put("Змиевская ТЭС", "ЗмТЭС");
-        mapShortNameStation.put("Харьковская ТЭЦ-5", "ХТЭЦ-5");
-        mapShortNameStation.put("Трипольская ТЭС", "ТрТЭС");
-        mapShortNameStation.put("Киевская ТЭЦ-5", "КТЭЦ-5");
-        mapShortNameStation.put("Киевская ТЭЦ-6", "КТЭЦ-6");
-        mapShortNameStation.put("Ладыжинская ТЭС", "ЛаТЭС");
-        mapShortNameStation.put("Бурштынская ТЭС", "БуТЭС");
-        mapShortNameStation.put("Добротворская ТЭС", "ДоТЭС");
-        mapShortNameStation.put("Эсхар", "ЭсХ");
+        mapShortNameStation.put("Луганская ТЭС", "Лу\nТЭС");
+        mapShortNameStation.put("Славянская ТЭС", "Сл\nТЭС");
+        mapShortNameStation.put("Мироновская ТЭС", "Ми\nТЭС");
+        mapShortNameStation.put("Углегорская ТЭС", "Уu\nТЭС");
+        mapShortNameStation.put("Кураховская ТЭС", "Ку\nТЭС");
+        mapShortNameStation.put("Зуевская ТЭС", "Зу\nТЭС");
+        mapShortNameStation.put("Криворожская ТЭС", "Кр\nТЭС");
+        mapShortNameStation.put("Приднепровская ТЭС", "Пд\nТЭС");
+        mapShortNameStation.put("Запорожская ТЭС", "За\nТЭС");
+        mapShortNameStation.put("Змиевская ТЭС", "Зм\nТЭС");
+        mapShortNameStation.put("Харьковская ТЭЦ-5", "ХТЭЦ\n5");
+        mapShortNameStation.put("Трипольская ТЭС", "Тр\nТЭС");
+        mapShortNameStation.put("Киевская ТЭЦ-5", "КТЭЦ\n5");
+        mapShortNameStation.put("Киевская ТЭЦ-6", "КТЭЦ\n6");
+        mapShortNameStation.put("Ладыжинская ТЭС", "Ла\nТЭС");
+        mapShortNameStation.put("Бурштынская ТЭС", "Бу\nТЭС");
+        mapShortNameStation.put("Добротворская ТЭС", "До\nТЭС");
+        mapShortNameStation.put("Эсхар", "Эс\nХАР");
     }
 
     public static String getShortName(String key){

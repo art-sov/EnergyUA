@@ -51,9 +51,7 @@ public class StationActivity extends AppCompatActivity implements StationContrac
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
 
-                //TODO реализовать метод для установление текущей даты в запрос
-                Toast.makeText(getApplicationContext(), "Date: ", Toast.LENGTH_SHORT).show();
-
+                mPresenter.dateSelected(year, month, dayOfMonth);
             }
         };
 
@@ -187,7 +185,6 @@ public class StationActivity extends AppCompatActivity implements StationContrac
         }
         else {
             textView.setBackground(getDrawable(R.drawable.simple_rect));
-
         }
     }
 
@@ -232,6 +229,18 @@ public class StationActivity extends AppCompatActivity implements StationContrac
         if (repairStatus1 != 0 && repairStatus2 != 0 && repairStatus1 == repairStatus2){
             Drawable drawable = getDrawable(repairStatus1);
             textViewUnit3.setBackground(drawable);
+        }
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void updateUI() {
+        for (CompoundStation compoundStation: compoundStationList ){
+            compoundStation.clearView();
         }
     }
 
