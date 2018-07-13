@@ -172,7 +172,7 @@ public class StationActivity extends AppCompatActivity implements StationContrac
     }
 
     @Override
-    public void setBlockContent(int index, int numberBlock, String power, int repairStatus) {
+    public void setBlockContent(int index, final int numberBlock, String power, int repairStatus) {
 
         TextView textView = getTextView(index, numberBlock);
 
@@ -182,10 +182,19 @@ public class StationActivity extends AppCompatActivity implements StationContrac
         if (repairStatus != 0){
             Drawable drawable = getDrawable(repairStatus);
             textView.setBackground(drawable);
+            textView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(StationActivity.this, "block " +
+                            numberBlock + " was clicked", Toast.LENGTH_LONG).show();
+                }
+            });
         }
         else {
             textView.setBackground(getDrawable(R.drawable.simple_rect));
         }
+
+
     }
 
     @Override
