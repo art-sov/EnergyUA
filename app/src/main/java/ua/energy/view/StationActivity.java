@@ -1,6 +1,8 @@
 package ua.energy.view;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -21,6 +23,7 @@ import ua.energy.CompoundBlock;
 import ua.energy.CompoundStation;
 import ua.energy.MasterMVP;
 import ua.energy.R;
+import ua.energy.entity.Unit;
 import ua.energy.model.StationModel;
 import ua.energy.presenter.StationPresenter;
 
@@ -172,7 +175,8 @@ public class StationActivity extends AppCompatActivity implements StationContrac
     }
 
     @Override
-    public void setBlockContent(int index, final int numberBlock, String power, int repairStatus) {
+    public void setBlockContent(final Unit unit1, int index, final int numberBlock, String power,
+                                int repairStatus, final String stationName) {
 
         TextView textView = getTextView(index, numberBlock);
 
@@ -185,21 +189,30 @@ public class StationActivity extends AppCompatActivity implements StationContrac
             textView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(StationActivity.this, "block " +
-                            numberBlock + " was clicked", Toast.LENGTH_LONG).show();
+
+                    String message = getAlertMessage(unit1, stationName);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(StationActivity.this);
+                    builder.setTitle(R.string.alert_dialog_title)
+                            .setMessage(message)
+                            .setCancelable(false)
+                            .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            }).show();
                 }
             });
         }
         else {
             textView.setBackground(getDrawable(R.drawable.simple_rect));
         }
-
-
     }
 
     @Override
-    public void setCompoundBlockContent(int index, int numberBlock, String powerBlock,
-                                        int repairStatus1, int repairStatus2) {
+    public void setCompoundBlockContent(final Unit unit1, final Unit unit2, int index, int numberBlock,
+                                        String powerBlock, final int repairStatus1, final int repairStatus2,
+                                        final String stationName) {
 
         Drawable drawableSimpleRect = getDrawable(R.drawable.simple_rect);
 
@@ -239,6 +252,36 @@ public class StationActivity extends AppCompatActivity implements StationContrac
             Drawable drawable = getDrawable(repairStatus1);
             textViewUnit3.setBackground(drawable);
         }
+
+        if (repairStatus1 != 0 || repairStatus2 != 0) {
+            textViewUnit3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String message = "";
+                    if (repairStatus1 == 0) {
+                        message = getAlertMessage(unit2, stationName);
+                    }
+                    else if (repairStatus2 == 0){
+                        message = getAlertMessage(unit1, stationName);
+                    }
+                    else {
+                        message = getAlertMessage(unit1, stationName)
+                                + "\n ----------------------------------------\n" +
+                                getAlertMessage(unit2, stationName);
+                    }
+                    AlertDialog.Builder builder = new AlertDialog.Builder(StationActivity.this);
+                    builder.setTitle(R.string.alert_dialog_title)
+                            .setMessage(message)
+                            .setCancelable(false)
+                            .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            }).show();
+                }
+            });
+        }
     }
 
     @Override
@@ -253,6 +296,8 @@ public class StationActivity extends AppCompatActivity implements StationContrac
         }
     }
 
+    //--------------------------------------------------------------------------
+    //private methods
     private CompoundBlock getCompoundBlock(int index, int numberBlock) {
 
         CompoundBlock compoundBlock = null;
@@ -307,7 +352,7 @@ public class StationActivity extends AppCompatActivity implements StationContrac
         return  compoundBlock;
     }
 
-    public TextView getTextView(int index, int numberBlock){
+    private TextView getTextView(int index, int numberBlock){
 
         TextView textView = null;
 
@@ -359,5 +404,26 @@ public class StationActivity extends AppCompatActivity implements StationContrac
                 break;
         }
         return textView;
+    }
+
+    private String getAlertMessage(Unit unit, String stationName){
+
+        String statusShortName = unit.getStatusShortName();
+        String statusFullName = unit.getStatusFullName();
+        String repairStartTime = unit.getRepairStartTime();
+        String repairEndTime = unit.getRepairEndTime();
+        String comment = unit.getComment();
+        String operator = unit.getOperator();
+        String editTime = unit.getEditTime();
+        String name = unit.getName();
+
+        return getString(R.string.station) + "  " + stationName + "\n"
+                + getString(R.string.block) + "  " + name + "\n"
+                + getString(R.string.repair) + "  " + statusShortName + " (" + statusFullName +")" + "\n"
+                + getString(R.string.repair_begin) + "  " + repairStartTime + "\n"
+                + getString(R.string.repair_finish) + "  " + repairEndTime + "\n"
+                + getString(R.string.comment) + "  " + (comment == null ? "" : comment) + "\n"
+                + getString(R.string.operator) + "  " + operator + "\n"
+                + getString(R.string.edit_time) + "  " + editTime;
     }
 }

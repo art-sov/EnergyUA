@@ -42,11 +42,15 @@ public class StationPresenter implements StationContractModel {
     }
 
     public void updateStationContent(List<Station> list) {
-        //todo исключить мироновскую ТЭС, Эсхар и добавить Старобешевскую
+        //todo добавить Старобешевскую и атомные электростанции
         int index = 0;
         ShortNameStation shortNameStation = new ShortNameStation();
         ColorRepair colorRepair = new ColorRepair();
         for (Station station: list){
+            //сключение Мироновской ТЭС
+            if (station.getId() == 513004 || station.getId() == 513326) {
+                continue;
+            }
             if (station.getName() != null) {
 
                 String coalValue = getValue(station.getCoalValue());
@@ -60,6 +64,8 @@ public class StationPresenter implements StationContractModel {
                 String unitValue = station.getUnitValue();
 
                 String power = Integer.toString((int)station.getPower());
+
+                String stationName = station.getName();
 
                 view.setFuelContent(index, coalValue, oilValue, gasValue,
                         shortName, unitValue, power);
@@ -77,23 +83,12 @@ public class StationPresenter implements StationContractModel {
                     if (unit2 == null) {
 
                         int repairStatus = 0;
+
                         if (unit1.getColor() != null){
                             repairStatus = ColorRepair.getNumberColor(unit1.getColor());
                         }
 
-                        String statusShortName = unit1.getStatusShortName();
-                        String statusFullName = unit1.getStatusFullName();
-                        String repairStartTime = unit1.getRepairStartTime();
-                        String repairEndTime = unit1.getRepairEndTime();
-                        String comment = unit1.getComment();
-                        String operator = unit1.getOperator();
-                        String editTime = unit1.getEditTime();
-                        String name = unit1.getName();
-
-                        //todo реализовать класс для подробной информации о ремонте
-
-                        view.setBlockContent(index, numberBlock, powerBlock, repairStatus);
-
+                        view.setBlockContent(unit1, index, numberBlock, powerBlock, repairStatus, stationName);
                     }
                     else {
 
@@ -104,29 +99,12 @@ public class StationPresenter implements StationContractModel {
                             repairStatus1 = ColorRepair.getNumberColor(unit1.getColor());
                         }
 
-                        String statusShortName1 = unit1.getStatusShortName();
-                        String statusFullName1 = unit1.getStatusFullName();
-                        String repairStartTime1 = unit1.getRepairStartTime();
-                        String repairEndTime1 = unit1.getRepairEndTime();
-                        String comment1 = unit1.getComment();
-                        String operator1 = unit1.getOperator();
-                        String editTime1 = unit1.getEditTime();
-                        String name1 = unit1.getName();
-
                         if (unit2.getColor() != null) {
                             repairStatus2 = ColorRepair.getNumberColor(unit2.getColor());
                         }
 
-                        String statusShortName2 = unit2.getStatusShortName();
-                        String statusFullName2 = unit2.getStatusFullName();
-                        String repairStartTime2 = unit2.getRepairStartTime();
-                        String repairEndTime2 = unit2.getRepairEndTime();
-                        String comment2 = unit2.getComment();
-                        String operator2 = unit2.getOperator();
-                        String editTime2 = unit2.getEditTime();
-                        String name2 = unit2.getName();
-
-                        view.setCompoundBlockContent(index, numberBlock, powerBlock, repairStatus1, repairStatus2);
+                        view.setCompoundBlockContent(unit1, unit2, index, numberBlock, powerBlock,
+                                repairStatus1, repairStatus2, stationName);
                     }
                 }
                 index++;
@@ -157,7 +135,7 @@ public class StationPresenter implements StationContractModel {
         selectedCalendar.set(year, month, dayOfMonth);
 
         //todo реализовать progress bar
-        if (selectedCalendar.after(calendar)) {
+        if (selectedCalendar.after(calendar) || selectedCalendar.equals(calendar)) {
             view.showToast("Необходимо выбрать дату на день меньше текущей");
             view.updateUI();
             model.saveDate("current");

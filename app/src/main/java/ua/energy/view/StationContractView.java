@@ -4,6 +4,7 @@ import java.util.List;
 
 import ua.energy.CompoundStation;
 import ua.energy.entity.Station;
+import ua.energy.entity.Unit;
 
 public interface StationContractView {
 
@@ -13,10 +14,12 @@ public interface StationContractView {
                         String oilValue, String gasValue, String shortName, String unitValue,
                         String power);
 
-    void setBlockContent(int index, int numberBlock, String powerBlock, int repairStatus);
+    void setBlockContent(Unit unit1, int index, int numberBlock, String powerBlock, int repairStatus,
+                         String stationName);
 
-    void setCompoundBlockContent(int index, int numberBlock, String powerBlock, int repairStatus1,
-                                int repairStatus2);
+    void setCompoundBlockContent(Unit unit1, Unit unit2, int index, int numberBlock,
+                                 String powerBlock, int repairStatus1, int repairStatus2,
+                                 String stationName);
 
     void showToast(String message);
 

@@ -7,4 +7,15 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_station">StationActivity</string>
+    <string name="alert_dialog_title">Состояние блока</string>
+
+    <!--Elements of block-->
+    <string name="station">Станция:</string>
+    <string name="block">Блок:</string>
+    <string name="repair">Ремонт:</string>
+    <string name="repair_begin">Начало ремонта:</string>
+    <string name="repair_finish">Концец ремонта:</string>
+    <string name="comment">Комментарий:</string>
+    <string name="operator">Оператор:</string>
+    <string name="edit_time">Время правки:</string>
 </resources>
