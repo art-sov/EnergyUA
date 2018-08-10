@@ -24,4 +24,8 @@ public interface StationContractView {
     void showToast(String message);
 
     void updateUI();
+
+    void showProgressBar();
+
+    void hideProgressBar();
 }

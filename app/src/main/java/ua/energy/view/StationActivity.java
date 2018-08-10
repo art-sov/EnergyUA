@@ -21,10 +21,8 @@ import java.util.List;
 
 import ua.energy.CompoundBlock;
 import ua.energy.CompoundStation;
-import ua.energy.MasterMVP;
 import ua.energy.R;
 import ua.energy.entity.Unit;
-import ua.energy.model.StationModel;
 import ua.energy.presenter.StationPresenter;
 
 public class StationActivity extends AppCompatActivity implements StationContractView {
@@ -295,6 +293,17 @@ public class StationActivity extends AppCompatActivity implements StationContrac
             compoundStation.clearView();
         }
     }
+
+    @Override
+    public void showProgressBar() {
+        //mProgressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgressBar() {
+        //mProgressBar.setVisibility(View.INVISIBLE);
+    }
+
 
     //--------------------------------------------------------------------------
     //private methods

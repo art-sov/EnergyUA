@@ -123,8 +123,9 @@ public class StationPresenter implements StationContractModel {
     //методы обратного вызова
     @Override
     public void loadStationList(List<Station> list) {
-
+        view.showProgressBar();
         updateStationContent(list);
+        view.hideProgressBar();
     }
 
     //пользователь выбрал дату

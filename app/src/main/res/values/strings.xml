@@ -18,4 +18,7 @@
     <string name="comment">Комментарий:</string>
     <string name="operator">Оператор:</string>
     <string name="edit_time">Время правки:</string>
+    <string name="login">Login</string>
+    <string name="login_button">Войти</string>
+    <string name="password">Пароль</string>
 </resources>
