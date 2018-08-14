@@ -8,10 +8,10 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import ua.energy.MyApplication;
+import ua.energy.App;
 import ua.energy.entity.Station;
 import ua.energy.presenter.StationContractModel;
-import ua.energy.service.ServerAPI;
+import ua.energy.service.ApiService;
 
 public class StationModel {
 
@@ -24,11 +24,10 @@ public class StationModel {
         if (mDate != null)
             date = mDate;
 
-        ServerAPI serverAPI = MyApplication.getServiceGenerator().createService(ServerAPI.class,
-                "kmu", "EuroWind111");
+        ApiService apiService = ((App) getApplication()).getApiService("kmu", "EuroWind111");
 
             //date format dd.MM.yyyy
-            serverAPI.getConditionStations(date).enqueue(new Callback<List<Station>>() {
+            apiService.getConditionStations(date).enqueue(new Callback<List<Station>>() {
 
                 @Override
                 public void onResponse(@NonNull Call<List<Station>> call,

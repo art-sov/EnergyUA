@@ -20,10 +20,11 @@ public class AuthorizationInterceptor implements Interceptor{
     public Response intercept(Chain chain) throws IOException {
 
         Response mainResponse = chain.proceed(chain.request());
+
         if (mainResponse.code() == 401 || mainResponse.code() == 403) {
             mSession.invalidate();
         }
 
-        return null;
+        return mainResponse;
     }
 }
