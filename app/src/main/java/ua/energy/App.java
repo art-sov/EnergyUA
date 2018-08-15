@@ -21,13 +21,18 @@ import ua.energy.service.retrofit.NetworkConnectionInterceptor;
 
 public class App extends Application {
 
+    private static App instance;
+
+    private static AppComponent appComponent;
+
+
     private ApiService mApiService;
     private InternetConnectionListener mInternetConnectionListener;
     private AuthenticationListener mAuthenticationListener;
 
     private Retrofit.Builder retrofitBuilder = new Retrofit.Builder()
             .baseUrl(ApiService.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create();
+            .addConverterFactory(GsonConverterFactory.create());
 
     private Retrofit mRetrofit = retrofitBuilder.build();
 
@@ -89,12 +94,14 @@ public class App extends Application {
         retrofitBuilder.client(okHttpClientBuilder.build());
         mRetrofit = retrofitBuilder.build();
 
-        return mRetrofit.create(apiService);
+        return null;
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
+        instance = this;
+        appComponent = DaggerAppComponent.create();
     }
 
     public void setInternetConnectionListener(InternetConnectionListener listener) {

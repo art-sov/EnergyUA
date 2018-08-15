@@ -24,10 +24,10 @@ public class StationModel {
         if (mDate != null)
             date = mDate;
 
-        ApiService apiService = ((App) getApplication()).getApiService("kmu", "EuroWind111");
+       // ApiService apiService = ((App) instance().getApiService("kmu", "EuroWind111");
 
             //date format dd.MM.yyyy
-            apiService.getConditionStations(date).enqueue(new Callback<List<Station>>() {
+            //apiService.getConditionStations(date).enqueue(new Callback<List<Station>>() {
 
                 @Override
                 public void onResponse(@NonNull Call<List<Station>> call,
