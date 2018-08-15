@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import ua.energy.view.LoginActivity;
 import ua.energy.view.LoginFragment;
 import ua.energy.view.StationActivity;
 
@@ -104,7 +105,8 @@ public class MainActivity extends AppCompatActivity
 
         }
         else if (id == R.id.nav_gallery) {
-
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
         }
         else if (id == R.id.nav_slideshow) {
 
