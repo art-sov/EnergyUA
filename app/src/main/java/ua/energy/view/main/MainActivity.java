@@ -1,4 +1,4 @@
-package ua.energy;
+package ua.energy.view.main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,9 +16,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import ua.energy.R;
 import ua.energy.view.LoginActivity;
 import ua.energy.view.LoginFragment;
-import ua.energy.view.StationActivity;
+import ua.energy.view.station.StationActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

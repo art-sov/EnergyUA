@@ -8,10 +8,10 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import ua.energy.MyApplication;
 import ua.energy.entity.Station;
 import ua.energy.presenter.StationContractModel;
 import ua.energy.service.ServerAPI;
+import ua.energy.service.ServiceGenerator;
 
 public class StationModel {
 
@@ -24,7 +24,9 @@ public class StationModel {
         if (mDate != null)
             date = mDate;
 
-        ServerAPI serverAPI = MyApplication.getServiceGenerator().createService(ServerAPI.class,
+        //todo переделать
+        ServiceGenerator serviceGenerator = new ServiceGenerator();
+        ServerAPI serverAPI = serviceGenerator.createService(ServerAPI.class,
                 "kmu", "EuroWind111");
 
             //date format dd.MM.yyyy

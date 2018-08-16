@@ -1,4 +1,4 @@
-package ua.energy.view;
+package ua.energy.view.station;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -18,23 +18,32 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import ua.energy.CompoundBlock;
 import ua.energy.CompoundStation;
 import ua.energy.R;
+import ua.energy.app.App;
 import ua.energy.entity.Unit;
-import ua.energy.presenter.StationPresenter;
+import ua.energy.view.StationContractView;
 
 public class StationActivity extends AppCompatActivity implements StationContractView {
+
+
 
     DatePickerDialog dialog;
     CoordinatorLayout mainLayout;
     List<CompoundStation> compoundStationList;
-    StationPresenter mPresenter;
+
+    @Inject
+    StationActivityPresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_station);
+
+        App.getApp(this).getComponentsHolder().getStetionActivityComponent().inject(this);
 
         mainLayout = (CoordinatorLayout) findViewById(R.id.main_layout);
 
@@ -72,7 +81,6 @@ public class StationActivity extends AppCompatActivity implements StationContrac
 
     private void init() {
 
-        mPresenter = new StationPresenter();
         mPresenter.attachView(this);
         mPresenter.viewIsReady();
     }
@@ -81,6 +89,11 @@ public class StationActivity extends AppCompatActivity implements StationContrac
     protected void onDestroy() {
         super.onDestroy();
         mPresenter.detachView();
+
+        // при уничтожении активити удаляем ее компонент
+        if (isFinishing()) {
+            App.getApp(this).getComponentsHolder().releaseStationActivityComponent();
+        }
     }
 
     @Override
