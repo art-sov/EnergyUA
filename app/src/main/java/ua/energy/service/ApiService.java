@@ -9,8 +9,6 @@ import ua.energy.entity.Station;
 
 public interface ApiService {
 
-    String BASE_URL = "http://disp.nec.energy.gov.ua/";
-
     @GET("/mobile/condition")
     Call<List<Station>> getConditionStations(@Query("date") String  date);
 }

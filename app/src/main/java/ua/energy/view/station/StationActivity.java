@@ -1,4 +1,4 @@
-package ua.energy.view;
+package ua.energy.view.station;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -19,25 +18,34 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import ua.energy.CompoundBlock;
 import ua.energy.CompoundStation;
 import ua.energy.R;
+import ua.energy.app.App;
+import ua.energy.app.dagger.dispatcher.DispatcherComponent;
+import ua.energy.app.dagger.dispatcher.DispatcherModule;
 import ua.energy.entity.Unit;
-import ua.energy.presenter.StationPresenter;
+import ua.energy.view.StationContractView;
+import ua.energy.view.station.dagger.StationActivityComponent;
+import ua.energy.view.station.dagger.StationActivityModule;
 
 public class StationActivity extends AppCompatActivity implements StationContractView {
 
     DatePickerDialog dialog;
     CoordinatorLayout mainLayout;
     List<CompoundStation> compoundStationList;
-    StationPresenter mPresenter;
+
+    @Inject
+    StationActivityPresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_station);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+        App.getApp(this).getComponentsHolder().getStationActivityComponent().injectStationActivity(this);
 
         mainLayout = (CoordinatorLayout) findViewById(R.id.main_layout);
 
@@ -52,7 +60,7 @@ public class StationActivity extends AppCompatActivity implements StationContrac
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
 
-                mPresenter.dateSelected(year, month, dayOfMonth);
+               mPresenter.dateSelected(year, month, dayOfMonth);
             }
         };
 
@@ -67,16 +75,14 @@ public class StationActivity extends AppCompatActivity implements StationContrac
         });
 
         // скрыть навигационную панель
-        mainLayout.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                | View.SYSTEM_UI_FLAG_FULLSCREEN);
-
+//        mainLayout.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+//                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+//                | View.SYSTEM_UI_FLAG_FULLSCREEN);
         init();
     }
 
     private void init() {
 
-        mPresenter = new StationPresenter();
         mPresenter.attachView(this);
         mPresenter.viewIsReady();
     }
@@ -85,6 +91,11 @@ public class StationActivity extends AppCompatActivity implements StationContrac
     protected void onDestroy() {
         super.onDestroy();
         mPresenter.detachView();
+
+        // при уничтожении активити удаляем ее компонент
+        if (isFinishing()) {
+            App.getApp(this).getComponentsHolder().releaseStationActivityComponent();
+        }
     }
 
     @Override

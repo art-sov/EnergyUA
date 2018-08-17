@@ -1,4 +1,4 @@
-package ua.energy.presenter;
+package ua.energy.view.station;
 
 import android.util.Log;
 
@@ -12,15 +12,17 @@ import ua.energy.entity.ShortNameStation;
 import ua.energy.entity.Station;
 import ua.energy.entity.Unit;
 import ua.energy.model.StationModel;
+import ua.energy.presenter.StationContractModel;
 import ua.energy.view.StationContractView;
 
-public class StationPresenter implements StationContractModel {
+public class StationActivityPresenter implements StationContractModel {
 
     private StationContractView view;
+
     private final StationModel model;
 
-    public StationPresenter() {
-        model = new StationModel();
+    public StationActivityPresenter(StationModel model) {
+        this.model = model;
     }
 
     public void attachView(StationContractView view) {
