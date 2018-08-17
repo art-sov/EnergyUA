@@ -8,13 +8,13 @@ import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import ua.energy.R;
-import ua.energy.app.App;
 import ua.energy.app.dagger.AppScope;
 import ua.energy.service.ServiceGenerator;
 
 @Module
 public class ApiModule {
+
+    private static final String BASE_URL = "http://disp.nec.energy.gov.ua/";
 
     @Provides
     @AppScope
@@ -33,11 +33,10 @@ public class ApiModule {
 
     @Provides
     @AppScope
-    public Retrofit.Builder provideRetrofit(App app) {
+    public Retrofit.Builder provideRetrofit() {
         Retrofit.Builder builder = new Retrofit.Builder();
-        builder.baseUrl(app.getString(R.string.base_url))
+        builder.baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create());
-
         return builder;
     }
 
@@ -47,7 +46,4 @@ public class ApiModule {
                                                      OkHttpClient.Builder okHttpClientBuilder) {
         return new ServiceGenerator(retrofitBuilder, okHttpClientBuilder);
     }
-
-
-
 }

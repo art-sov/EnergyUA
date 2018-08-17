@@ -2,19 +2,17 @@ package ua.energy.service;
 
 import android.text.TextUtils;
 
-import javax.inject.Inject;
-
 import okhttp3.Credentials;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import ua.energy.service.retrofit.AuthenticationInterceptor;
 
 public class ServiceGenerator {
 
-    private Retrofit.Builder retrofitBuilder;
-    private OkHttpClient.Builder httpClientBuilder;
+    Retrofit.Builder retrofitBuilder;
+    OkHttpClient.Builder httpClientBuilder;
     private Retrofit retrofit;
 
-    @Inject
     public ServiceGenerator(Retrofit.Builder retrofitBuilder, OkHttpClient.Builder httpClientBuilder) {
         this.retrofitBuilder = retrofitBuilder;
         this.httpClientBuilder = httpClientBuilder;
@@ -42,8 +40,6 @@ public class ServiceGenerator {
                 retrofit = retrofitBuilder.build();
             }
         }
-
         return retrofit.create(serviceClass);
     }
-
 }

@@ -2,12 +2,8 @@ package ua.energy.app.dagger;
 
 import android.content.Context;
 
-import okhttp3.OkHttpClient;
-import retrofit2.Retrofit;
 import ua.energy.app.dagger.dispatcher.DispatcherComponent;
 import ua.energy.app.dagger.dispatcher.DispatcherModule;
-import ua.energy.model.StationModel;
-import ua.energy.service.ServiceGenerator;
 import ua.energy.view.station.dagger.StationActivityComponent;
 import ua.energy.view.station.dagger.StationActivityModule;
 
@@ -45,11 +41,8 @@ public class ComponentsHolder {
     }
 
     //StationActivityComponent
-    public StationActivityComponent getStationActivityComponent() {
-        if (mStationActivityComponent == null){
-            mStationActivityComponent = getDispatcherComponent()
-                    .createStationActivityComponent(new StationActivityModule(new StationModel(new ServiceGenerator(new Retrofit.Builder(), new OkHttpClient.Builder()))));
-        }
+    public StationActivityComponent getStationActivityComponent(){
+        mStationActivityComponent = getDispatcherComponent().createStationActivityComponent(new StationActivityModule());
         return mStationActivityComponent;
     }
 

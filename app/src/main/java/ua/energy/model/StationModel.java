@@ -5,12 +5,9 @@ import android.util.Log;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import ua.energy.app.App;
 import ua.energy.entity.Station;
 import ua.energy.presenter.StationContractModel;
 import ua.energy.service.ApiService;
@@ -20,7 +17,7 @@ public class StationModel {
 
     private String mDate;
 
-    private ServiceGenerator mServiceGenerator;
+    ServiceGenerator mServiceGenerator;
 
     public StationModel(ServiceGenerator serviceGenerator) {
         mServiceGenerator = serviceGenerator;
