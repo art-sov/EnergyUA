@@ -24,12 +24,14 @@ import ua.energy.CompoundBlock;
 import ua.energy.CompoundStation;
 import ua.energy.R;
 import ua.energy.app.App;
+import ua.energy.app.dagger.dispatcher.DispatcherComponent;
+import ua.energy.app.dagger.dispatcher.DispatcherModule;
 import ua.energy.entity.Unit;
 import ua.energy.view.StationContractView;
+import ua.energy.view.station.dagger.StationActivityComponent;
+import ua.energy.view.station.dagger.StationActivityModule;
 
 public class StationActivity extends AppCompatActivity implements StationContractView {
-
-
 
     DatePickerDialog dialog;
     CoordinatorLayout mainLayout;
@@ -43,7 +45,7 @@ public class StationActivity extends AppCompatActivity implements StationContrac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_station);
 
-        App.getApp(this).getComponentsHolder().getStetionActivityComponent().inject(this);
+        App.getApp(this).getComponentsHolder().getStationActivityComponent().injectStationActivity(this);
 
         mainLayout = (CoordinatorLayout) findViewById(R.id.main_layout);
 
@@ -58,7 +60,7 @@ public class StationActivity extends AppCompatActivity implements StationContrac
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
 
-                mPresenter.dateSelected(year, month, dayOfMonth);
+               mPresenter.dateSelected(year, month, dayOfMonth);
             }
         };
 

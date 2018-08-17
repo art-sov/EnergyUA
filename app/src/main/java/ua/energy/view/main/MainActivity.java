@@ -17,7 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import ua.energy.R;
-import ua.energy.view.LoginActivity;
+import ua.energy.view.login.LoginActivity;
 import ua.energy.view.LoginFragment;
 import ua.energy.view.station.StationActivity;
 

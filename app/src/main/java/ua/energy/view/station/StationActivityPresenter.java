@@ -18,10 +18,11 @@ import ua.energy.view.StationContractView;
 public class StationActivityPresenter implements StationContractModel {
 
     private StationContractView view;
+
     private final StationModel model;
 
-    public StationActivityPresenter() {
-        model = new StationModel();
+    public StationActivityPresenter(StationModel model) {
+        this.model = model;
     }
 
     public void attachView(StationContractView view) {

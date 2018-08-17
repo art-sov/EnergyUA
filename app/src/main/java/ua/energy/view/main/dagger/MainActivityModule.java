@@ -4,7 +4,6 @@ import dagger.Module;
 import dagger.Provides;
 import ua.energy.view.main.MainActivityPresenter;
 
-
 @Module
 public class MainActivityModule {
 

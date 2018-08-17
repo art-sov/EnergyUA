@@ -7,5 +7,5 @@ import ua.energy.view.station.StationActivity;
 @Subcomponent(modules = {StationActivityModule.class})
 public interface StationActivityComponent {
 
-    void inject(StationActivity stationActivity);
+    void injectStationActivity(StationActivity stationActivity);
 }

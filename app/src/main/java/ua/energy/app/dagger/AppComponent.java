@@ -1,15 +1,13 @@
 package ua.energy.app.dagger;
 
 import dagger.Component;
-import ua.energy.view.main.dagger.MainActivityComponent;
-import ua.energy.view.station.dagger.StationActivityComponent;
+import ua.energy.app.dagger.dispatcher.DispatcherComponent;
+import ua.energy.app.dagger.dispatcher.DispatcherModule;
+import ua.energy.service.dagger.ApiModule;
 
 @AppScope
-@Component(modules = {AppModule.class})
+@Component(modules = {AppModule.class, ApiModule.class})
 public interface AppComponent {
 
-    //todo создание сабкомпонентов для активити
-
-    MainActivityComponent createMainActivityComponent();
-    StationActivityComponent createStationActivityComponent();
+    DispatcherComponent createDispatcherComponent(DispatcherModule dispatcherModule);
 }

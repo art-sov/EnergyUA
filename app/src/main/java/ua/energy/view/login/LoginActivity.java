@@ -1,4 +1,4 @@
-package ua.energy.view;
+package ua.energy.view.login;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
