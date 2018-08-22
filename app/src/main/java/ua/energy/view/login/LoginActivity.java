@@ -32,7 +32,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import ua.energy.R;
+import ua.energy.app.App;
+import ua.energy.presenter.LoginActivityPresenter;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -58,6 +62,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      */
     private UserLoginTask mAuthTask = null;
 
+    @Inject
+    LoginActivityPresenter mPresenter;
+
     // UI references.
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
@@ -68,6 +75,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        App.getApp(this).getComponentsHolder().getLoginActivityComponent().inject(this);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -94,6 +103,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (isFinishing()) {
+            App.getApp(this).getComponentsHolder().releaseLoginActivityComponent();
+        }
     }
 
     private void populateAutoComplete() {

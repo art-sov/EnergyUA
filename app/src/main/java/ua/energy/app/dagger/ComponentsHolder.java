@@ -4,6 +4,9 @@ import android.content.Context;
 
 import ua.energy.app.dagger.dispatcher.DispatcherComponent;
 import ua.energy.app.dagger.dispatcher.DispatcherModule;
+import ua.energy.view.login.dagger.LoginActivityComponent;
+import ua.energy.view.login.dagger.LoginActivityModule;
+import ua.energy.view.main.dagger.MainActivityComponent;
 import ua.energy.view.station.dagger.StationActivityComponent;
 import ua.energy.view.station.dagger.StationActivityModule;
 
@@ -14,6 +17,8 @@ public class ComponentsHolder {
     private  AppComponent mAppComponent;
     private DispatcherComponent mDispatcherComponent;
     private StationActivityComponent mStationActivityComponent;
+    private LoginActivityComponent mLoginActivityComponent;
+    private MainActivityComponent mMainActivityComponent;
 
     public ComponentsHolder (Context context) {
         mContext = context;
@@ -42,7 +47,11 @@ public class ComponentsHolder {
 
     //StationActivityComponent
     public StationActivityComponent getStationActivityComponent(){
-        mStationActivityComponent = getDispatcherComponent().createStationActivityComponent(new StationActivityModule());
+
+        if (mStationActivityComponent == null) {
+            mStationActivityComponent =
+                    getDispatcherComponent().createStationActivityComponent(new StationActivityModule());
+        }
         return mStationActivityComponent;
     }
 
@@ -51,4 +60,33 @@ public class ComponentsHolder {
     }
 
     //todo остальные компоненты
+
+    //LoginActivityComponent
+    public LoginActivityComponent getLoginActivityComponent() {
+
+        if (mLoginActivityComponent == null) {
+            mLoginActivityComponent =
+                    getDispatcherComponent().createLoginActivityComponent(new LoginActivityModule());
+        }
+        return mLoginActivityComponent;
+    }
+
+    public void releaseLoginActivityComponent(){
+        mLoginActivityComponent = null;
+    }
+
+    //MainActivityComponent
+    public MainActivityComponent getMainActivityComponent() {
+
+        if (mMainActivityComponent == null) {
+            mMainActivityComponent = getDispatcherComponent().createMainActivityComponent();
+        }
+        return mMainActivityComponent;
+    }
+
+    public void releaseMainActivityComponent() {
+        mMainActivityComponent = null;
+    }
+
+
 }
