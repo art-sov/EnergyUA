@@ -2,7 +2,9 @@ package ua.energy.view.station;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -32,6 +34,7 @@ public class StationActivity extends AppCompatActivity implements StationContrac
     DatePickerDialog dialog;
     CoordinatorLayout mainLayout;
     List<CompoundStation> compoundStationList;
+    String authToken;
 
     @Inject
     StationActivityPresenter mPresenter;
@@ -42,6 +45,15 @@ public class StationActivity extends AppCompatActivity implements StationContrac
         setContentView(R.layout.activity_station);
 
         App.getApp(this).getComponentsHolder().getStationActivityComponent().inject(this);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("dispatcher", Context.MODE_PRIVATE);
+        authToken = sharedPreferences.getString("authToken", "");
+        mPresenter.setAuthToken(authToken);
+
+        if (authToken.isEmpty()){
+            //todo
+            Toast.makeText(this, "Token is empty", Toast.LENGTH_LONG).show();
+        }
 
         mainLayout = (CoordinatorLayout) findViewById(R.id.main_layout);
 
@@ -81,6 +93,7 @@ public class StationActivity extends AppCompatActivity implements StationContrac
 
         mPresenter.attachView(this);
         mPresenter.viewIsReady();
+        mPresenter.setAuthToken(authToken);
     }
 
     @Override

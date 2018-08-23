@@ -33,7 +33,7 @@ public class ApiModule {
 
     @Provides
     @AppScope
-    public Retrofit.Builder provideRetrofit() {
+    public Retrofit.Builder provideRetrofitBuilder() {
         Retrofit.Builder builder = new Retrofit.Builder();
         builder.baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create());

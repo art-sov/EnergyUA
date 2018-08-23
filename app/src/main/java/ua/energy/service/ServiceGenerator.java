@@ -11,7 +11,7 @@ public class ServiceGenerator {
 
     Retrofit.Builder retrofitBuilder;
     OkHttpClient.Builder httpClientBuilder;
-    private Retrofit retrofit;
+    Retrofit retrofit;
 
     public ServiceGenerator(Retrofit.Builder retrofitBuilder, OkHttpClient.Builder httpClientBuilder) {
         this.retrofitBuilder = retrofitBuilder;
@@ -31,6 +31,10 @@ public class ServiceGenerator {
     }
 
     public <S> S createService(Class<S> serviceClass, final String authToken){
+
+        retrofitBuilder.client(httpClientBuilder.build());
+        retrofit = retrofitBuilder.build();
+
         if (!TextUtils.isEmpty(authToken)) {
             AuthenticationInterceptor interceptor = new AuthenticationInterceptor(authToken);
 

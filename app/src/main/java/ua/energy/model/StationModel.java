@@ -17,6 +17,8 @@ public class StationModel {
 
     private String mDate;
 
+    private String mAuthToken;
+
     ServiceGenerator mServiceGenerator;
 
     public StationModel(ServiceGenerator serviceGenerator) {
@@ -30,8 +32,7 @@ public class StationModel {
         if (mDate != null)
             date = mDate;
 
-        ApiService apiService = mServiceGenerator.createService(ApiService.class,
-                "kmu", "EuroWind111");
+        ApiService apiService = mServiceGenerator.createService(ApiService.class, mAuthToken);
 
             //date format dd.MM.yyyy
             apiService.getConditionStations(date).enqueue(new Callback<List<Station>>() {
@@ -41,12 +42,12 @@ public class StationModel {
                                        @NonNull Response<List<Station>> response) {
 
                     List<Station> list = response.body();
-                    Log.i("RESPONCE===\n", list.toString());
+                    //Log.i("RESPONCE===\n", list.toString());
                     mStationContractModel.loadStationList(list);
                 }
 
                 @Override
-                public void onFailure(@NonNull Call<List<Station>> call, Throwable t) {
+                public void onFailure(@NonNull Call<List<Station>> call, @NonNull Throwable t) {
                     Log.i("onFailure: ", "Response not exist");
                 }
             });
@@ -56,5 +57,9 @@ public class StationModel {
 
     public void saveDate (String date){
         mDate = date;
+    }
+
+    public void setAuthToken(String authToken) {
+        mAuthToken = authToken;
     }
 }

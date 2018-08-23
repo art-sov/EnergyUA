@@ -1,11 +1,12 @@
 package ua.energy.view.main;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,20 +16,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import javax.inject.Inject;
 
 import ua.energy.R;
 import ua.energy.app.App;
 import ua.energy.view.login.LoginActivity;
-import ua.energy.view.LoginFragment;
 import ua.energy.view.station.StationActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    public static final String LOG_TAG = MainActivity.class.getName();
     @Inject
     MainActivityPresenter mPresenter;
+
+    @Inject
+    SharedPreferences mPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +42,13 @@ public class MainActivity extends AppCompatActivity
 
         App.getApp(this).getComponentsHolder().getMainActivityComponent().inject(this);
 
-        FragmentManager fm = getSupportFragmentManager();
-        Fragment fragment = fm.findFragmentById(R.id.fragment_login);
+        mPreferences = getSharedPreferences("dispatcher", Context.MODE_PRIVATE);
+        String authToken = mPreferences.getString("authToken", "");
 
-        if (fragment == null) {
-            fragment = new LoginFragment();
-            fm.beginTransaction().add(R.id.fragment_login, fragment).commit();
+        Log.i(LOG_TAG, "--------------- authToken: " + authToken);
+        if (authToken.isEmpty()) {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
         }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -68,6 +74,23 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        mPreferences = getSharedPreferences("dispatcher", Context.MODE_PRIVATE);
+        String authToken = mPreferences.getString("authToken", "");
+
+        if (authToken.isEmpty()) {
+
+            Toast.makeText(this,
+                    "Для входа введите имя пользователя и пароль", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
+
+    }
 
     @Override
     protected void onDestroy() {

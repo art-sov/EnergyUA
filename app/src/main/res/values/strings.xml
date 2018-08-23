@@ -18,15 +18,12 @@
     <string name="comment">Комментарий:</string>
     <string name="operator">Оператор:</string>
     <string name="edit_time">Время правки:</string>
-    <string name="login">Login</string>
-    <string name="login_button">Войти</string>
-    <string name="password">Пароль</string>
-    <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="title_activity_login">Авторизация</string>
+    <string name="prompt_username">Имя пользователя</string>
+    <string name="prompt_password">Пароль</string>
+    <string name="action_sign_in">войти</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
@@ -36,5 +33,4 @@
         completions."
     </string>
 
-    <string name="base_url">http://disp.nec.energy.gov.ua/</string>
 </resources>

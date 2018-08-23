@@ -2,14 +2,14 @@ package ua.energy.view.login.dagger;
 
 import dagger.Module;
 import dagger.Provides;
-import ua.energy.presenter.LoginActivityPresenter;
+import ua.energy.model.StationModel;
+import ua.energy.view.station.StationActivityPresenter;
 
 @Module
 public class LoginActivityModule {
 
-    @LoginActivityScope
     @Provides
-    LoginActivityPresenter provideLoginActivityPresenter(){
-        return new LoginActivityPresenter();
+    StationActivityPresenter provideStationActivityPresenter(StationModel stationModel){
+        return new StationActivityPresenter(stationModel);
     }
 }

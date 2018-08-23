@@ -153,4 +153,8 @@ public class StationActivityPresenter implements StationContractModel {
             model.loadStations(this);
         }
     }
+
+    public void setAuthToken(String authToken){
+        model.setAuthToken(authToken);
+    }
 }
