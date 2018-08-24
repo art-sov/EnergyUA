@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import ua.energy.R;
 import ua.energy.app.App;
 import ua.energy.entity.Unit;
 import ua.energy.view.StationContractView;
+import ua.energy.view.login.LoginActivity;
 
 public class StationActivity extends AppCompatActivity implements StationContractView {
 
@@ -52,7 +54,9 @@ public class StationActivity extends AppCompatActivity implements StationContrac
 
         if (authToken.isEmpty()){
             //todo
-            Toast.makeText(this, "Token is empty", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(StationActivity.this, LoginActivity.class);
+            startActivity(intent);
+            //Toast.makeText(this, "Token is empty", Toast.LENGTH_LONG).show();
         }
 
         mainLayout = (CoordinatorLayout) findViewById(R.id.main_layout);

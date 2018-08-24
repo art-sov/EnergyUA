@@ -29,7 +29,7 @@ import ua.energy.app.App;
 import ua.energy.entity.User;
 import ua.energy.service.ApiService;
 import ua.energy.service.ServiceGenerator;
-import ua.energy.view.station.StationActivity;
+import ua.energy.view.main.MainActivity;
 
 public class LoginActivity extends AppCompatActivity{
 
@@ -72,7 +72,6 @@ public class LoginActivity extends AppCompatActivity{
                 String password = mPasswordView.getText().toString();
 
                 mSharedPreferences = getSharedPreferences("dispatcher", Context.MODE_PRIVATE);
-                final SharedPreferences.Editor editor = mSharedPreferences.edit();
 
                 final String authToken = Credentials.basic(username, password);
 
@@ -81,25 +80,25 @@ public class LoginActivity extends AppCompatActivity{
                 apiService.isAuthorization().enqueue(new Callback<User>() {
                     @Override
                     public void onResponse(@NonNull Call<User> call, @NonNull Response<User> response) {
-                        editor.putString("authToken", authToken);
-                        editor.apply();
 
                         int responseCode = response.code();
 
-
-                        Intent intent = new Intent(LoginActivity.this, StationActivity.class);
-                        startActivity(intent);
+                        if (responseCode == 401){
+                            showMessage("Не верный логин или пароль");
+                        }
+                        else {
+                            SharedPreferences.Editor editor = mSharedPreferences.edit();
+                            editor.putString("authToken", authToken);
+                            editor.apply();
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
                     }
-
                     @Override
-                    public void onFailure(Call<User> call, Throwable t) {
-                        showMessage("Не верный логин или пароль");
+                    public void onFailure(@NonNull Call<User> call, @NonNull Throwable t) {
+                        showMessage("Произошла ошибка");
                     }
                 });
-
-
-
-
             }
         });
     }
@@ -115,7 +114,6 @@ public class LoginActivity extends AppCompatActivity{
 
     private void showMessage(String message){
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-
     }
 }
 

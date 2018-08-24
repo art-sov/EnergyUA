@@ -79,16 +79,16 @@ public class MainActivity extends AppCompatActivity
     protected void onStart() {
         super.onStart();
 
-        mPreferences = getSharedPreferences("dispatcher", Context.MODE_PRIVATE);
-        String authToken = mPreferences.getString("authToken", "");
-
-        if (authToken.isEmpty()) {
-
-            Toast.makeText(this,
-                    "Для входа введите имя пользователя и пароль", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(intent);
-        }
+//        mPreferences = getSharedPreferences("dispatcher", Context.MODE_PRIVATE);
+//        String authToken = mPreferences.getString("authToken", "");
+//
+//        if (authToken.isEmpty()) {
+//
+//            Toast.makeText(this,
+//                    "Для входа введите имя пользователя и пароль", Toast.LENGTH_LONG).show();
+//            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+//            startActivity(intent);
+//        }
 
     }
 

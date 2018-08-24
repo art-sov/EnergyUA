@@ -42,7 +42,7 @@ public class StationModel {
                                        @NonNull Response<List<Station>> response) {
 
                     List<Station> list = response.body();
-                    //Log.i("RESPONCE===\n", list.toString());
+                    //Log.i("RESPONSE===\n", list.toString());
                     mStationContractModel.loadStationList(list);
                 }
 
