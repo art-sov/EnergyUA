@@ -28,6 +28,11 @@ public class ShortNameStation {
         mapShortNameStation.put("Бурштынская ТЭС", "Бу\nТЭС");
         mapShortNameStation.put("Добротворская ТЭС", "До\nТЭС");
         mapShortNameStation.put("Эсхар", "Эс\nХАР");
+        mapShortNameStation.put("Ровенская АЭС", "Р\nАЭС");
+        mapShortNameStation.put("Запорожская АЭС", "З\nАЭС");
+        mapShortNameStation.put("Южно-Украинская АЭС", "ЮУ\nАЭС");
+        mapShortNameStation.put("Хмельницкая АЭС", "Х\nАЭС");
+        mapShortNameStation.put("Старобешевская ТЭС", "Стб\nТЭС");
     }
 
     public static String getShortName(String key){

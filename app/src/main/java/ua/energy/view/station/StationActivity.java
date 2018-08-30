@@ -53,10 +53,8 @@ public class StationActivity extends AppCompatActivity implements StationContrac
         mPresenter.setAuthToken(authToken);
 
         if (authToken.isEmpty()){
-            //todo
-            Intent intent = new Intent(StationActivity.this, LoginActivity.class);
+            Intent intent = LoginActivity.newIntent(this);
             startActivity(intent);
-            //Toast.makeText(this, "Token is empty", Toast.LENGTH_LONG).show();
         }
 
         mainLayout = (CoordinatorLayout) findViewById(R.id.main_layout);
@@ -326,6 +324,16 @@ public class StationActivity extends AppCompatActivity implements StationContrac
     @Override
     public void hideProgressBar() {
         //mProgressBar.setVisibility(View.INVISIBLE);
+    }
+
+
+    //--------------------------------------------------------------------------
+    //static methods
+
+    public static Intent newIntent(Context context){
+        Intent intent = new Intent(context, StationActivity.class);
+        // put something
+        return intent;
     }
 
 

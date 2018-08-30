@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity
 
         Log.i(LOG_TAG, "--------------- authToken: " + authToken);
         if (authToken.isEmpty()) {
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            Intent intent = LoginActivity.newIntent(this);
             startActivity(intent);
         }
 
@@ -79,16 +79,16 @@ public class MainActivity extends AppCompatActivity
     protected void onStart() {
         super.onStart();
 
-//        mPreferences = getSharedPreferences("dispatcher", Context.MODE_PRIVATE);
-//        String authToken = mPreferences.getString("authToken", "");
-//
-//        if (authToken.isEmpty()) {
-//
-//            Toast.makeText(this,
-//                    "Для входа введите имя пользователя и пароль", Toast.LENGTH_LONG).show();
-//            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-//            startActivity(intent);
-//        }
+        mPreferences = getSharedPreferences("dispatcher", Context.MODE_PRIVATE);
+        String authToken = mPreferences.getString("authToken", "");
+
+        if (authToken.isEmpty()) {
+
+            Toast.makeText(this,
+                    "Для входа введите имя пользователя и пароль", Toast.LENGTH_LONG).show();
+            Intent intent = LoginActivity.newIntent(this);
+            startActivity(intent);
+        }
 
     }
 
@@ -140,32 +140,27 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-            //TODO сделать правильный интент
-            Intent intent = new Intent(MainActivity.this, StationActivity.class);
+        if (id == R.id.nav_dispatcher) {
+            Intent intent = StationActivity.newIntent(this);
             startActivity(intent);
 
         }
-        else if (id == R.id.nav_gallery) {
+        else if (id == R.id.nav_rent_car) {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
         }
-        else if (id == R.id.nav_slideshow) {
 
-        }
-        else if (id == R.id.nav_manage) {
-
-        }
-        else if (id == R.id.nav_share) {
-
-        }
-        else if (id == R.id.nav_send) {
-
-        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    //------------------------------------------------------------------------------------------
+    //static methods
+    public static Intent newIntent(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
+        //put something
+        return intent;
     }
 }

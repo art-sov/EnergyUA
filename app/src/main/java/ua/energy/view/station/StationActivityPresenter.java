@@ -44,7 +44,6 @@ public class StationActivityPresenter implements StationContractModel {
     }
 
     public void updateStationContent(List<Station> list) {
-        //todo добавить Старобешевскую и атомные электростанции
         int index = 0;
         ShortNameStation shortNameStation = new ShortNameStation();
         ColorRepair colorRepair = new ColorRepair();
@@ -128,6 +127,11 @@ public class StationActivityPresenter implements StationContractModel {
         view.showProgressBar();
         updateStationContent(list);
         view.hideProgressBar();
+    }
+
+    @Override
+    public void showMessage(String message) {
+        view.showToast(message);
     }
 
     //пользователь выбрал дату

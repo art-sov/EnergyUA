@@ -90,7 +90,8 @@ public class LoginActivity extends AppCompatActivity{
                             SharedPreferences.Editor editor = mSharedPreferences.edit();
                             editor.putString("authToken", authToken);
                             editor.apply();
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+
+                            Intent intent = MainActivity.newIntent(LoginActivity.this);
                             startActivity(intent);
                         }
                     }
@@ -112,6 +113,16 @@ public class LoginActivity extends AppCompatActivity{
         }
     }
 
+    //------------------------------------------------------------------------------------------
+    //static methods
+    public static Intent newIntent(Context context) {
+        Intent intent = new Intent(context, LoginActivity.class);
+        //put something
+        return intent;
+    }
+
+    //------------------------------------------------------------------------------------------
+    //private methods
     private void showMessage(String message){
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }

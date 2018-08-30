@@ -44,11 +44,7 @@ public class CompoundBlock extends LinearLayout {
         unit3 = findViewById(R.id.tv_unit3);
     }
 
-    public void updateCompountBlock(CompoundBlock block) {
-        //TODO написать
-    }
-
-    public TextView getUnit1() {
+     public TextView getUnit1() {
         return unit1;
     }
 

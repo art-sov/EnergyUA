@@ -59,8 +59,6 @@ public class ComponentsHolder {
         mStationActivityComponent = null;
     }
 
-    //todo остальные компоненты
-
     //LoginActivityComponent
     public LoginActivityComponent getLoginActivityComponent() {
 

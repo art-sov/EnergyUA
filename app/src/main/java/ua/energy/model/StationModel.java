@@ -32,7 +32,8 @@ public class StationModel {
         if (mDate != null)
             date = mDate;
 
-        ApiService apiService = mServiceGenerator.createService(ApiService.class, mAuthToken);
+        //Basic a211OkV1cm9XaW5kMTEx
+        ApiService apiService = mServiceGenerator.createService(ApiService.class, "Basic a211OkV1cm9XaW5kMTEx");
 
             //date format dd.MM.yyyy
             apiService.getConditionStations(date).enqueue(new Callback<List<Station>>() {
@@ -40,6 +41,12 @@ public class StationModel {
                 @Override
                 public void onResponse(@NonNull Call<List<Station>> call,
                                        @NonNull Response<List<Station>> response) {
+
+                    int responseCode = response.code();
+
+                    if (responseCode == 401) {
+                        mStationContractModel.showMessage("Вы не авторизовались");
+                    }
 
                     List<Station> list = response.body();
                     //Log.i("RESPONSE===\n", list.toString());

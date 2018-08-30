@@ -7,4 +7,6 @@ import ua.energy.entity.Station;
 public interface StationContractModel {
 
     void loadStationList(List<Station> list);
+
+    void showMessage(String message);
 }
