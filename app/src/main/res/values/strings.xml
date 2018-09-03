@@ -32,7 +32,13 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <!--Navigation Drawable-->
     <string name="dispatcher">Диспетчер</string>
     <string name="rent_car">Заказать автомобиль</string>
 
+    <!--Menu for dispatcher-->
+    <string name="station_condition">Состояние блоков</string>
+    <string name="consolidate_report">Ведомости об ОЭС</string>
+    <string name="title_activity_consolidate">Сведенный отчет</string>
 </resources>

@@ -5,10 +5,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
-    <!--<uses-permission android:name="android.permission.GET_ACCOUNTS" />-->
-    <!--<uses-permission android:name="android.permission.READ_PROFILE" />-->
-    <!--<uses-permission android:name="android.permission.READ_CONTACTS" />-->
-
+    <!-- <uses-permission android:name="android.permission.GET_ACCOUNTS" /> -->
+    <!-- <uses-permission android:name="android.permission.READ_PROFILE" /> -->
+    <!-- <uses-permission android:name="android.permission.READ_CONTACTS" /> -->
     <application
         android:name=".app.App"
         android:allowBackup="true"
@@ -29,11 +28,19 @@
         </activity>
         <activity
             android:name=".view.station.StationActivity"
-            android:label="@string/title_activity_station">
-        </activity>
+            android:label="@string/title_activity_station"
+            android:parentActivityName=".view.main.MainActivity"></activity>
         <activity
             android:name=".view.login.LoginActivity"
-            android:label="@string/title_activity_login">
+            android:label="@string/title_activity_login"></activity>
+        <activity
+            android:name=".view.consolidate.ConsolidateActivity"
+            android:label="@string/title_activity_consolidate"
+            android:parentActivityName=".view.station.StationActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ua.energy.view.station.StationActivity" />
         </activity>
     </application>
 

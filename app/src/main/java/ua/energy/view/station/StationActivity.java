@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -29,6 +31,7 @@ import ua.energy.R;
 import ua.energy.app.App;
 import ua.energy.entity.Unit;
 import ua.energy.view.StationContractView;
+import ua.energy.view.consolidate.ConsolidateActivity;
 import ua.energy.view.login.LoginActivity;
 
 public class StationActivity extends AppCompatActivity implements StationContractView {
@@ -106,6 +109,28 @@ public class StationActivity extends AppCompatActivity implements StationContrac
         // при уничтожении активити удаляем ее компонент
         if (isFinishing()) {
             App.getApp(this).getComponentsHolder().releaseStationActivityComponent();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.dispatcher_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+
+            case R.id.action_condition_station:
+                return true;
+
+            case R.id.action_consolidate_report:
+                Intent intent = ConsolidateActivity.newIntent(this);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
