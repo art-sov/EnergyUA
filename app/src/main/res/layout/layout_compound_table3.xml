@@ -31,19 +31,15 @@
             android:gravity="start"/>
         <TextView
             android:id="@+id/tvTable3row1cell2"
-            android:text="103.0"
             style="@style/table_cell"/>
         <TextView
             android:id="@+id/tvTable3row1cell3"
-            android:text="102.76"
             style="@style/table_cell"/>
         <TextView
             android:id="@+id/tvTable3row1cell4"
-            android:text=""
             style="@style/table_cell"/>
         <TextView
             android:id="@+id/tvTable3row1cell5"
-            android:text=""
             style="@style/table_cell"/>
     </TableRow>
 
@@ -54,19 +50,15 @@
             android:gravity="start"/>
         <TextView
             android:id="@+id/tvTable3row2cell2"
-            android:text="91.5"
             style="@style/table_cell"/>
         <TextView
             android:id="@+id/tvTable3row2cell3"
-            android:text="91.41"
             style="@style/table_cell"/>
         <TextView
             android:id="@+id/tvTable3row2cell4"
-            android:text=""
             style="@style/table_cell"/>
         <TextView
             android:id="@+id/tvTable3row2cell5"
-            android:text=""
             style="@style/table_cell"/>
     </TableRow>
     <TableRow>
@@ -76,41 +68,33 @@
             android:gravity="start"/>
         <TextView
             android:id="@+id/tvTable3row3cell2"
-            android:text="81.0"
             style="@style/table_cell"/>
         <TextView
             android:id="@+id/tvTable3row3cell3"
-            android:text="80.2"
             style="@style/table_cell"/>
         <TextView
             android:id="@+id/tvTable3row3cell4"
-            android:text=""
             style="@style/table_cell"/>
         <TextView
             android:id="@+id/tvTable3row3cell5"
-            android:text=""
             style="@style/table_cell"/>
     </TableRow>
     <TableRow>
         <TextView
-            android:id="@+id/tvTable3row4cell2"
             android:text="СдГЭС"
             style="@style/table_cell"
             android:gravity="start"/>
         <TextView
+            android:id="@+id/tvTable3row4cell2"
+            style="@style/table_cell"/>
+        <TextView
             android:id="@+id/tvTable3row4cell3"
-            android:text="64.0"
             style="@style/table_cell"/>
         <TextView
             android:id="@+id/tvTable3row4cell4"
-            android:text="63.86"
             style="@style/table_cell"/>
         <TextView
             android:id="@+id/tvTable3row4cell5"
-            android:text=""
-            style="@style/table_cell"/>
-        <TextView
-            android:text=""
             style="@style/table_cell"/>
     </TableRow>
 
@@ -121,19 +105,15 @@
             android:gravity="start"/>
         <TextView
             android:id="@+id/tvTable3row5cell2"
-            android:text="51.4"
             style="@style/table_cell"/>
         <TextView
             android:id="@+id/tvTable3row5cell3"
-            android:text="51.25"
             style="@style/table_cell"/>
         <TextView
             android:id="@+id/tvTable3row5cell4"
-            android:text=""
             style="@style/table_cell"/>
         <TextView
             android:id="@+id/tvTable3row5cell5"
-            android:text=""
             style="@style/table_cell"/>
     </TableRow>
     <TableRow>
@@ -143,19 +123,15 @@
             android:gravity="start"/>
         <TextView
             android:id="@+id/tvTable3row6cell2"
-            android:text="16.0"
             style="@style/table_cell"/>
         <TextView
             android:id="@+id/tvTable3row6cell3"
-            android:text="15.69"
             style="@style/table_cell"/>
         <TextView
             android:id="@+id/tvTable3row6cell4"
-            android:text=""
             style="@style/table_cell"/>
         <TextView
             android:id="@+id/tvTable3row6cell5"
-            android:text=""
             style="@style/table_cell"/>
     </TableRow>
     <TableRow>
@@ -165,19 +141,15 @@
             android:gravity="start"/>
         <TextView
             android:id="@+id/tvTable3row7cell2"
-            android:text="121,0"
             style="@style/table_cell"/>
         <TextView
             android:id="@+id/tvTable3row7cell3"
-            android:text="118,94"
             style="@style/table_cell"/>
         <TextView
             android:id="@+id/tvTable3row7cell4"
-            android:text=""
             style="@style/table_cell"/>
         <TextView
             android:id="@+id/tvTable3row7cell5"
-            android:text=""
             style="@style/table_cell"/>
     </TableRow>
     <TableRow>
@@ -188,13 +160,9 @@
             android:layout_span="3"/>
         <TextView
             android:id="@+id/tvTable3row8cell2"
-            android:text="120"
             style="@style/table_cell"/>
         <TextView
             android:text=""
             style="@style/table_cell"/>
     </TableRow>
-
-
-
 </merge>

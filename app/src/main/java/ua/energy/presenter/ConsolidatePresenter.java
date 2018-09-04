@@ -4,18 +4,18 @@ import java.util.List;
 
 import ua.energy.entity.HydroStationTable;
 import ua.energy.model.StationModel;
-import ua.energy.view.consolidate.ConsolidateContractView;
+import ua.energy.view.consolidate.ConsolidateActivity;
 
 public class ConsolidatePresenter implements ConsolidateContractModel{
 
-    private ConsolidateContractView mView;
+    private ConsolidateActivity mView;
     private StationModel mModel;
 
     public ConsolidatePresenter(StationModel stationModel) {
         mModel = stationModel;
     }
 
-    public void attachView(ConsolidateContractView view) {
+    public void attachView(ConsolidateActivity view) {
         mView = view;
     }
 
@@ -27,10 +27,15 @@ public class ConsolidatePresenter implements ConsolidateContractModel{
         //todo something
     }
 
+    public void loadHydroStationStatus() {
+        mModel.loadDataTable3(this);
+    }
 
     @Override
-    public void loadHydroStationStatus(List<HydroStationTable> list) {
-        //todo метод, котторый переносит данные из джисона в таблицу вьюхи
+    public void loadDataTable3(List<HydroStationTable> list) {
 
+        for (HydroStationTable row: list) {
+            mView.setDataTable3(row);
+        }
     }
 }

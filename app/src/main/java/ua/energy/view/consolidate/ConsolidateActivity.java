@@ -8,19 +8,15 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import ua.energy.R;
 import ua.energy.app.App;
 import ua.energy.compound_view.CompoundTable3;
 import ua.energy.entity.HydroStationTable;
 import ua.energy.presenter.ConsolidatePresenter;
 
-public class ConsolidateActivity extends AppCompatActivity implements ConsolidateContractView {
+public class ConsolidateActivity extends AppCompatActivity {
 
     CompoundTable3 viewTable3;
 
@@ -47,6 +43,7 @@ public class ConsolidateActivity extends AppCompatActivity implements Consolidat
             }
         });
         init();
+        mPresenter.loadHydroStationStatus();
     }
 
 
@@ -57,6 +54,10 @@ public class ConsolidateActivity extends AppCompatActivity implements Consolidat
             App.getApp(this).getComponentsHolder().releaseConsolidateActivityComponent();
         }
         mPresenter.detachView();
+    }
+
+    public void setDataTable3(HydroStationTable row) {
+        viewTable3.setRow(row);
     }
 
     //------------------------------------------------------------------------------------------
@@ -74,7 +75,5 @@ public class ConsolidateActivity extends AppCompatActivity implements Consolidat
         mPresenter.viewIsReady();
     }
 
-    public void initTable3() {
 
-    }
 }

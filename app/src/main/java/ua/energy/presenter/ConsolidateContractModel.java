@@ -6,6 +6,5 @@ import ua.energy.entity.HydroStationTable;
 
 public interface ConsolidateContractModel {
 
-    void loadHydroStationStatus(List<HydroStationTable> list);
-
+        void loadDataTable3(List<HydroStationTable> list);
 }

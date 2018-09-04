@@ -11,7 +11,6 @@ import retrofit2.Response;
 import ua.energy.entity.HydroStationTable;
 import ua.energy.entity.Station;
 import ua.energy.presenter.ConsolidateContractModel;
-import ua.energy.view.consolidate.ConsolidateContractView;
 import ua.energy.presenter.StationContractModel;
 import ua.energy.service.ApiService;
 import ua.energy.service.ServiceGenerator;
@@ -75,7 +74,7 @@ public class StationModel {
 
     }
 
-    public void loadHydroStatus(final ConsolidateContractModel model){
+    public void loadDataTable3(final ConsolidateContractModel model){
 
         String date = "current";
         if (mDate != null)
@@ -86,7 +85,7 @@ public class StationModel {
             public void onResponse(@NonNull Call<List<HydroStationTable>> call,
                                    @NonNull Response<List<HydroStationTable>> response) {
                 List<HydroStationTable> list = response.body();
-                model.loadHydroStationStatus(list);
+                model.loadDataTable3(list);
             }
 
             @Override

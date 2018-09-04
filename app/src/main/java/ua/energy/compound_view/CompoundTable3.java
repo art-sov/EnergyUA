@@ -10,6 +10,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ua.energy.R;
+import ua.energy.entity.HydroStationTable;
 
 public class CompoundTable3 extends TableLayout {
 
@@ -93,6 +94,51 @@ public class CompoundTable3 extends TableLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
         ButterKnife.bind(this);
+    }
+
+    public void setRow (HydroStationTable row) {
+        int id = row.getColumn1();
+
+        switch(id){
+            case 1:
+                tvRow1Cell2.setText(String.format("%.2f", row.getColumn3()));
+                tvRow1Cell3.setText(String.format("%.2f", row.getColumn4()));
+                tvRow1Cell4.setText(Integer.toString(row.getColumn5()));
+                tvRow1Cell5.setText(Integer.toString(row.getColumn6()));
+            case 2:
+                tvRow2Cell2.setText(String.format("%.2f", row.getColumn3()));
+                tvRow2Cell3.setText(String.format("%.2f", row.getColumn4()));
+                tvRow2Cell4.setText(Integer.toString(row.getColumn5()));
+                tvRow2Cell5.setText(Integer.toString(row.getColumn6()));
+            case 3:
+                tvRow3Cell2.setText(String.format("%.2f", row.getColumn3()));
+                tvRow3Cell3.setText(String.format("%.2f", row.getColumn4()));
+                tvRow3Cell4.setText(Integer.toString(row.getColumn5()));
+                tvRow3Cell5.setText(Integer.toString(row.getColumn6()));
+            case 4:
+                tvRow4Cell2.setText(String.format("%.2f", row.getColumn3()));
+                tvRow4Cell3.setText(String.format("%.2f", row.getColumn4()));
+                tvRow4Cell4.setText(Integer.toString(row.getColumn5()));
+                tvRow4Cell5.setText(Integer.toString(row.getColumn6()));
+            case 5:
+                tvRow5Cell2.setText(String.format("%.2f", row.getColumn3()));
+                tvRow5Cell3.setText(String.format("%.2f", row.getColumn4()));
+                tvRow5Cell4.setText(Integer.toString(row.getColumn5()));
+                tvRow5Cell5.setText(Integer.toString(row.getColumn6()));
+            case 6:
+                tvRow6Cell2.setText(String.format("%.2f", row.getColumn3()));
+                tvRow6Cell3.setText(String.format("%.2f", row.getColumn4()));
+                tvRow6Cell4.setText(Integer.toString(row.getColumn5()));
+                tvRow6Cell5.setText(Integer.toString(row.getColumn6()));
+            case 7:
+                tvRow7Cell2.setText(String.format("%.2f", row.getColumn3()));
+                tvRow7Cell3.setText(String.format("%.2f", row.getColumn4()));
+                tvRow7Cell4.setText(Integer.toString(row.getColumn5()));
+                tvRow7Cell5.setText(Integer.toString(row.getColumn6()));
+            case 8:
+                tvRow8Cell2.setText(Integer.toString(row.getColumn5()));
+
+        }
     }
 
     private void initViews(Context context){
