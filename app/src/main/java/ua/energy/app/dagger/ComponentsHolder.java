@@ -4,6 +4,8 @@ import android.content.Context;
 
 import ua.energy.app.dagger.dispatcher.DispatcherComponent;
 import ua.energy.app.dagger.dispatcher.DispatcherModule;
+import ua.energy.view.consolidate.dagger.ConsolidateActivityComponent;
+import ua.energy.view.consolidate.dagger.ConsolidateActivityModule;
 import ua.energy.view.login.dagger.LoginActivityComponent;
 import ua.energy.view.login.dagger.LoginActivityModule;
 import ua.energy.view.main.dagger.MainActivityComponent;
@@ -19,6 +21,7 @@ public class ComponentsHolder {
     private StationActivityComponent mStationActivityComponent;
     private LoginActivityComponent mLoginActivityComponent;
     private MainActivityComponent mMainActivityComponent;
+    private ConsolidateActivityComponent mConsolidateActivityComponent;
 
     public ComponentsHolder (Context context) {
         mContext = context;
@@ -86,5 +89,17 @@ public class ComponentsHolder {
         mMainActivityComponent = null;
     }
 
+    //ConsolidateActivity
+    public ConsolidateActivityComponent getConsolidateActivityComponent(){
 
+        if (mConsolidateActivityComponent == null) {
+            mConsolidateActivityComponent =
+                    getDispatcherComponent().createConsolidateActivityComponent(new ConsolidateActivityModule());
+        }
+        return mConsolidateActivityComponent;
+    }
+
+    public void releaseConsolidateActivityComponent(){
+        mConsolidateActivityComponent = null;
+    }
 }

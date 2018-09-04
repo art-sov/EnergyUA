@@ -8,7 +8,10 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import ua.energy.entity.HydroStationTable;
 import ua.energy.entity.Station;
+import ua.energy.presenter.ConsolidateContractModel;
+import ua.energy.view.consolidate.ConsolidateContractView;
 import ua.energy.presenter.StationContractModel;
 import ua.energy.service.ApiService;
 import ua.energy.service.ServiceGenerator;
@@ -25,18 +28,19 @@ public class StationModel {
         mServiceGenerator = serviceGenerator;
     }
 
-    //загрузка данных с сервера
+    private ApiService getApiService(){
+        return mServiceGenerator.createService(ApiService.class, mAuthToken);
+    }
+
+    //загрузка состояния блоков и станций с сервера
     public void loadStations(final StationContractModel mStationContractModel) {
 
         String date = "current";
         if (mDate != null)
             date = mDate;
 
-        //Basic a211OkV1cm9XaW5kMTEx
-        ApiService apiService = mServiceGenerator.createService(ApiService.class, "Basic a211OkV1cm9XaW5kMTEx");
-
             //date format dd.MM.yyyy
-            apiService.getConditionStations(date).enqueue(new Callback<List<Station>>() {
+            getApiService().getConditionStations(date).enqueue(new Callback<List<Station>>() {
 
                 @Override
                 public void onResponse(@NonNull Call<List<Station>> call,
@@ -60,6 +64,37 @@ public class StationModel {
             });
 
             mDate = null;
+    }
+
+    //загрузка данных для сведенного отчета
+    public void loadBalanceData(){
+
+    }
+
+    public void loadConsumptionControl(){
+
+    }
+
+    public void loadHydroStatus(final ConsolidateContractModel model){
+
+        String date = "current";
+        if (mDate != null)
+            date = mDate;
+
+        getApiService().getHydroStationTable(date).enqueue(new Callback<List<HydroStationTable>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<HydroStationTable>> call,
+                                   @NonNull Response<List<HydroStationTable>> response) {
+                List<HydroStationTable> list = response.body();
+                model.loadHydroStationStatus(list);
+            }
+
+            @Override
+            public void onFailure(Call<List<HydroStationTable>> call, Throwable t) {
+                Log.i("onFailure: ", "Response not exist");
+            }
+        });
+        mDate = null;
     }
 
     public void saveDate (String date){

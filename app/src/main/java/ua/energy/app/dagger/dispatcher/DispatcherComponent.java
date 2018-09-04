@@ -1,6 +1,8 @@
 package ua.energy.app.dagger.dispatcher;
 
 import dagger.Subcomponent;
+import ua.energy.view.consolidate.dagger.ConsolidateActivityComponent;
+import ua.energy.view.consolidate.dagger.ConsolidateActivityModule;
 import ua.energy.view.login.dagger.LoginActivityComponent;
 import ua.energy.view.login.dagger.LoginActivityModule;
 import ua.energy.view.main.dagger.MainActivityComponent;
@@ -16,4 +18,6 @@ public interface DispatcherComponent {
     MainActivityComponent createMainActivityComponent();
 
     LoginActivityComponent createLoginActivityComponent(LoginActivityModule loginActivityModule);
+
+    ConsolidateActivityComponent createConsolidateActivityComponent(ConsolidateActivityModule consolidateActivityModule);
 }

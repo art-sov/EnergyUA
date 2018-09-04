@@ -2,8 +2,7 @@ package ua.energy.view;
 
 import java.util.List;
 
-import ua.energy.CompoundStation;
-import ua.energy.entity.Station;
+import ua.energy.compound_view.CompoundStation;
 import ua.energy.entity.Unit;
 
 public interface StationContractView {

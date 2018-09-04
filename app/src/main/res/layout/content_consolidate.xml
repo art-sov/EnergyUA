@@ -1,11 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:orientation="vertical"
     tools:context=".view.consolidate.ConsolidateActivity"
     tools:showIn="@layout/activity_consolidate">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/tvTitleConsolidateReport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/simple_margin"
+        android:gravity="center"
+        android:paddingBottom="@dimen/simple_margin"
+        android:paddingTop="@dimen/simple_margin"
+        android:text="Ведомости о работе энергосистем ОЭС Украины на 03.09.2018"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvTitleTable1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="1. Баланс ОЭС Украины"
+        style="@style/title_table"/>
+
+    <TextView
+        android:id="@+id/tvTitleTable2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2. Контроль потребления, МВт"
+        android:layout_gravity="center_horizontal"
+        style="@style/title_table"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <TextView
+            style="@style/title_table"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="2dp"
+            android:paddingStart="2dp"
+            android:text="3. Состояние ГЭС на 6:00" />
+
+        <TextView
+            android:id="@+id/tvDateTable3"
+            style="@style/title_table"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="2dp"
+            android:paddingStart="2dp"
+            android:text="03.09" />
+    </LinearLayout>
+
+    <ua.energy.compound_view.CompoundTable3
+        android:id="@+id/layout_table3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:stretchColumns="*"
+        android:background="#000">
+    </ua.energy.compound_view.CompoundTable3>
+
+    <!--<TableLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:stretchColumns="*"-->
+        <!--android:layout_marginStart="16dp"-->
+        <!--android:layout_marginEnd="16dp"-->
+        <!--android:background="#000">-->
+
+        <!--&lt;!&ndash;Header table 3&ndash;&gt;-->
+        <!--<TableRow>-->
+            <!--<TextView-->
+                <!--android:text="ГЭС"-->
+                <!--style="@style/table_header"/>-->
+            <!--<TextView-->
+                <!--android:text="НПР"-->
+                <!--style="@style/table_header"/>-->
+            <!--<TextView-->
+                <!--android:text="ВБ"-->
+                <!--style="@style/table_header"/>-->
+            <!--<TextView-->
+                <!--android:text="Прилив"-->
+                <!--style="@style/table_header"/>-->
+            <!--<TextView-->
+                <!--android:text="Сброс"-->
+                <!--style="@style/table_header"/>-->
+        <!--</TableRow>-->
+
+        <!--&lt;!&ndash;rows table 3&ndash;&gt;-->
+        <!--<TableRow>-->
+            <!--<TextView-->
+                <!--android:text="КиГЭС"-->
+                <!--style="@style/table_cell"-->
+                <!--android:gravity="start"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row1cell2"-->
+                <!--android:text="103.0"-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row1cell3"-->
+                <!--android:text="102.76"-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row1cell4"-->
+                <!--android:text=""-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row1cell5"-->
+                <!--android:text=""-->
+                <!--style="@style/table_cell"/>-->
+        <!--</TableRow>-->
+
+        <!--<TableRow>-->
+            <!--<TextView-->
+                <!--android:text="КанГЭС"-->
+                <!--style="@style/table_cell"-->
+                <!--android:gravity="start"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row2cell2"-->
+                <!--android:text="91.5"-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row2cell3"-->
+                <!--android:text="91.41"-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row2cell4"-->
+                <!--android:text=""-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row2cell5"-->
+                <!--android:text=""-->
+                <!--style="@style/table_cell"/>-->
+        <!--</TableRow>-->
+        <!--<TableRow>-->
+            <!--<TextView-->
+                <!--android:text="КремГЭС"-->
+                <!--style="@style/table_cell"-->
+                <!--android:gravity="start"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row3cell2"-->
+                <!--android:text="81.0"-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row3cell3"-->
+                <!--android:text="80.2"-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row3cell4"-->
+                <!--android:text=""-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row3cell5"-->
+                <!--android:text=""-->
+                <!--style="@style/table_cell"/>-->
+        <!--</TableRow>-->
+        <!--<TableRow>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row4cell2"-->
+                <!--android:text="СдГЭС"-->
+                <!--style="@style/table_cell"-->
+                <!--android:gravity="start"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row4cell3"-->
+                <!--android:text="64.0"-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row4cell4"-->
+                <!--android:text="63.86"-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row4cell5"-->
+                <!--android:text=""-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:text=""-->
+                <!--style="@style/table_cell"/>-->
+        <!--</TableRow>-->
+
+        <!--<TableRow>-->
+            <!--<TextView-->
+                <!--android:text="ДГЭС"-->
+                <!--style="@style/table_cell"-->
+                <!--android:gravity="start"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row5cell2"-->
+                <!--android:text="51.4"-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row5cell3"-->
+                <!--android:text="51.25"-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row5cell4"-->
+                <!--android:text=""-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row5cell5"-->
+                <!--android:text=""-->
+                <!--style="@style/table_cell"/>-->
+        <!--</TableRow>-->
+        <!--<TableRow>-->
+            <!--<TextView-->
+                <!--android:text="КахГЭС"-->
+                <!--style="@style/table_cell"-->
+                <!--android:gravity="start"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row6cell2"-->
+                <!--android:text="16.0"-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row6cell3"-->
+                <!--android:text="15.69"-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row6cell4"-->
+                <!--android:text=""-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row6cell5"-->
+                <!--android:text=""-->
+                <!--style="@style/table_cell"/>-->
+        <!--</TableRow>-->
+        <!--<TableRow>-->
+            <!--<TextView-->
+                <!--android:text="ДнестрГЭС"-->
+                <!--style="@style/table_cell"-->
+                <!--android:gravity="start"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row7cell2"-->
+                <!--android:text="121,0"-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row7cell3"-->
+                <!--android:text="118,94"-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row7cell4"-->
+                <!--android:text=""-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row7cell5"-->
+                <!--android:text=""-->
+                <!--style="@style/table_cell"/>-->
+        <!--</TableRow>-->
+        <!--<TableRow>-->
+            <!--<TextView-->
+                <!--android:text="На утро ДнестрГЭС"-->
+                <!--style="@style/table_cell"-->
+                <!--android:gravity="end"-->
+                <!--android:layout_span="3"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tvTable3row8cell2"-->
+                <!--android:text="120"-->
+                <!--style="@style/table_cell"/>-->
+            <!--<TextView-->
+                <!--android:text=""-->
+                <!--style="@style/table_cell"/>-->
+        <!--</TableRow>-->
+
+    <!--</TableLayout>-->
+</LinearLayout>

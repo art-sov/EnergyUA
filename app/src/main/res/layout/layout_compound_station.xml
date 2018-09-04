@@ -8,7 +8,6 @@
 
     <!--FuelTable-->
     <TextView
-
         android:id="@+id/column1"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -59,7 +58,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         style="@style/Block"/>
-    <ua.energy.CompoundBlock
+    <ua.energy.compound_view.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block01cb"
         android:layout_width="0dp"
@@ -74,7 +73,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         style="@style/Block"/>
-    <ua.energy.CompoundBlock
+    <ua.energy.compound_view.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block02cb"
         android:layout_width="0dp"
@@ -89,7 +88,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         style="@style/Block"/>
-    <ua.energy.CompoundBlock
+    <ua.energy.compound_view.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block03cb"
         android:layout_width="0dp"
@@ -103,7 +102,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         style="@style/Block"/>
-    <ua.energy.CompoundBlock
+    <ua.energy.compound_view.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block04cb"
         android:layout_width="0dp"
@@ -117,7 +116,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         style="@style/Block"/>
-    <ua.energy.CompoundBlock
+    <ua.energy.compound_view.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block05cb"
         android:layout_width="0dp"
@@ -131,7 +130,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         style="@style/Block"/>
-    <ua.energy.CompoundBlock
+    <ua.energy.compound_view.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block06cb"
         android:layout_width="0dp"
@@ -145,7 +144,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         style="@style/Block"/>
-    <ua.energy.CompoundBlock
+    <ua.energy.compound_view.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block07cb"
         android:layout_width="0dp"
@@ -160,7 +159,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         style="@style/Block"/>
-    <ua.energy.CompoundBlock
+    <ua.energy.compound_view.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block08cb"
         android:layout_width="0dp"
@@ -175,7 +174,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         style="@style/Block"/>
-    <ua.energy.CompoundBlock
+    <ua.energy.compound_view.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block09cb"
         android:layout_width="0dp"
@@ -190,7 +189,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         style="@style/Block"/>
-    <ua.energy.CompoundBlock
+    <ua.energy.compound_view.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block10cb"
         android:layout_width="0dp"
@@ -205,7 +204,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         style="@style/Block"/>
-    <ua.energy.CompoundBlock
+    <ua.energy.compound_view.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block11cb"
         android:layout_width="0dp"
@@ -220,7 +219,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         style="@style/Block"/>
-    <ua.energy.CompoundBlock
+    <ua.energy.compound_view.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block12cb"
         android:layout_width="0dp"
@@ -235,7 +234,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         style="@style/Block"/>
-    <ua.energy.CompoundBlock
+    <ua.energy.compound_view.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block13cb"
         android:layout_width="0dp"
@@ -250,7 +249,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         style="@style/Block"/>
-    <ua.energy.CompoundBlock
+    <ua.energy.compound_view.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block14cb"
         android:layout_width="0dp"
@@ -265,7 +264,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         style="@style/Block"/>
-    <ua.energy.CompoundBlock
+    <ua.energy.compound_view.CompoundBlock
         android:visibility="gone"
         android:id="@+id/block15cb"
         android:layout_width="0dp"

@@ -25,8 +25,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import ua.energy.CompoundBlock;
-import ua.energy.CompoundStation;
+import ua.energy.compound_view.CompoundBlock;
+import ua.energy.compound_view.CompoundStation;
 import ua.energy.R;
 import ua.energy.app.App;
 import ua.energy.entity.Unit;

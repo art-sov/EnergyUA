@@ -6,12 +6,26 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import ua.energy.R;
+import java.util.List;
 
-public class ConsolidateActivity extends AppCompatActivity {
+import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import ua.energy.R;
+import ua.energy.app.App;
+import ua.energy.compound_view.CompoundTable3;
+import ua.energy.entity.HydroStationTable;
+import ua.energy.presenter.ConsolidatePresenter;
+
+public class ConsolidateActivity extends AppCompatActivity implements ConsolidateContractView {
+
+    CompoundTable3 viewTable3;
+
+    @Inject
+    ConsolidatePresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +33,10 @@ public class ConsolidateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_consolidate);
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
+
+        viewTable3 = (CompoundTable3) findViewById(R.id.layout_table3);
+        App.getApp(this).getComponentsHolder().getConsolidateActivityComponent().inject(this);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -28,7 +46,17 @@ public class ConsolidateActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        init();
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (isFinishing()) {
+            App.getApp(this).getComponentsHolder().releaseConsolidateActivityComponent();
+        }
+        mPresenter.detachView();
     }
 
     //------------------------------------------------------------------------------------------
@@ -39,4 +67,14 @@ public class ConsolidateActivity extends AppCompatActivity {
         return intent;
     }
 
+    //------------------------------------------------------------------------------------------
+    //private methods
+    private void init() {
+        mPresenter.attachView(this);
+        mPresenter.viewIsReady();
+    }
+
+    public void initTable3() {
+
+    }
 }

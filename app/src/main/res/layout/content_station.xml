@@ -218,131 +218,131 @@
             android:orientation="vertical">
 
             <!--строки таблицы (станции)-->
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout01"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
 
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout02"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
 
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout03"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
 
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout04"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
 
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout05"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
 
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout06"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
 
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout07"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
 
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout08"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
 
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout09"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
 
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
 
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
 
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
 
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
 
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout14"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
 
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout15"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
 
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
 
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout17"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
 
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout18"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
 
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout19"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
 
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
 
-            <ua.energy.CompoundStation
+            <ua.energy.compound_view.CompoundStation
                 android:id="@+id/station_layout21"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </ua.energy.CompoundStation>
+            </ua.energy.compound_view.CompoundStation>
         </LinearLayout>
     </ScrollView>
 

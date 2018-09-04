@@ -1,4 +1,4 @@
-package ua.energy;
+package ua.energy.compound_view;
 
 import android.content.Context;
 
@@ -6,6 +6,8 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import ua.energy.R;
 
 public class CompoundBlock extends LinearLayout {
 

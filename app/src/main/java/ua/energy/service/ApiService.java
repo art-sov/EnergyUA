@@ -5,6 +5,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
+import ua.energy.entity.HydroStationTable;
 import ua.energy.entity.Station;
 import ua.energy.entity.User;
 
@@ -15,4 +16,8 @@ public interface ApiService {
 
     @GET("/mobile/authorization")
     Call<User> isAuthorization();
+
+    //ConsolidateActivity
+    @GET("/mobile/consolidate_hydrostation")
+    Call<List<HydroStationTable>> getHydroStationTable(@Query("date") String date);
 }
