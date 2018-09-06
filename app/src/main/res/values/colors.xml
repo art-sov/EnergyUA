@@ -5,11 +5,15 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorPrimaryLight">#C5CAE9</color>
     <color name="colorTextBlack">#212121</color>
+    <color name="colorTextWhite">#ffffff</color>
 
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#757575</color>
     <color name="icons">#FFFFFF</color>
     <color name="divider">#BDBDBD</color>
+
+    <color name="colorBlack">#212121</color>
+    <color name="colorWhite">#ffffff</color>
 
     <!--power unit-->
     <color name="repair_medium">#007f22</color>

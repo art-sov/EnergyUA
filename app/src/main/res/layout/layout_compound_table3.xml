@@ -5,22 +5,33 @@
     android:layout_height="wrap_content">
 
     <!--Header table 3-->
-    <TableRow>
+    <TableRow android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <TextView
             android:text="ГЭС"
-            style="@style/table_header"/>
+            style="@style/table_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <TextView
             android:text="НПР"
-            style="@style/table_header"/>
+            style="@style/table_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <TextView
             android:text="ВБ"
-            style="@style/table_header"/>
+            style="@style/table_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <TextView
             android:text="Прилив"
-            style="@style/table_header"/>
+            style="@style/table_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <TextView
             android:text="Сброс"
-            style="@style/table_header"/>
+            style="@style/table_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </TableRow>
 
     <!--rows table 3-->

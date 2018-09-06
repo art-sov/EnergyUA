@@ -1,73 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".view.consolidate.ConsolidateActivity"
-    tools:showIn="@layout/activity_consolidate">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvTitleConsolidateReport"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="@dimen/simple_margin"
-        android:gravity="center"
-        android:paddingBottom="@dimen/simple_margin"
-        android:paddingTop="@dimen/simple_margin"
-        android:text="Ведомости о работе энергосистем ОЭС Украины на 03.09.2018"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tvTitleTable1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="1. Баланс ОЭС Украины"
-        style="@style/title_table"/>
-
-    <TextView
-        android:id="@+id/tvTitleTable2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2. Контроль потребления, МВт"
-        android:layout_gravity="center_horizontal"
-        style="@style/title_table"/>
-
-    <LinearLayout
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
-        <TextView
-            style="@style/title_table"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingEnd="2dp"
-            android:paddingStart="2dp"
-            android:text="3. Состояние ГЭС на 6:00" />
+        android:orientation="vertical"
+        tools:context=".view.consolidate.ConsolidateActivity"
+        tools:showIn="@layout/activity_consolidate">
 
         <TextView
-            android:id="@+id/tvDateTable3"
+            android:id="@+id/tvTitleConsolidateReport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/simple_margin"
+            android:gravity="center"
+            android:paddingBottom="@dimen/simple_margin"
+            android:paddingTop="@dimen/simple_margin"
+            android:text="Ведомости о работе энергосистем ОЭС Украины на 03.09.2018"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvTitleTable1"
             style="@style/title_table"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingEnd="2dp"
-            android:paddingStart="2dp"
-            android:text="03.09" />
+            android:layout_gravity="center_horizontal"
+            android:text="1. Баланс ОЭС Украины" />
+
+        <TextView
+            android:id="@+id/tvTitleTable2"
+            style="@style/title_table"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="2. Контроль потребления, МВт" />
+
+        <!--table 2 header-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:background="@color/colorBlack"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/table_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Энергосистема" />
+
+            <TextView
+                style="@style/table_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="Сумма облэнерго" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:background="@color/colorBlack"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/table_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="" />
+
+            <TextView
+                style="@style/table_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Факт" />
+
+            <TextView
+                style="@style/table_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Факт" />
+
+            <TextView
+                style="@style/table_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Граничное" />
+
+            <TextView
+                style="@style/table_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ф - Гр" />
+        </LinearLayout>
+
+        <!--table 2 rows-->
+        <ListView
+            android:id="@+id/lvTable2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"/>
+
+        <!--table 3 title-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                style="@style/title_table"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="2dp"
+                android:paddingStart="2dp"
+                android:text="3. Состояние ГЭС на 6:00" />
+
+            <TextView
+                android:id="@+id/tvDateTable3"
+                style="@style/title_table"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="2dp"
+                android:paddingStart="2dp"
+                android:text="03.09" />
+        </LinearLayout>
+
+        <!--table 3-->
+        <ua.energy.compound_view.CompoundTable3
+            android:id="@+id/layout_table3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:background="#000"
+            android:stretchColumns="*"/>
+
     </LinearLayout>
-
-    <ua.energy.compound_view.CompoundTable3
-        android:id="@+id/layout_table3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:stretchColumns="*"
-        android:background="#000">
-    </ua.energy.compound_view.CompoundTable3>
-
-</LinearLayout>
+</ScrollView>

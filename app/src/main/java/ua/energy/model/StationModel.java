@@ -8,6 +8,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import ua.energy.entity.ConsumptionTable;
 import ua.energy.entity.HydroStationTable;
 import ua.energy.entity.Station;
 import ua.energy.presenter.ConsolidateContractModel;
@@ -74,6 +75,28 @@ public class StationModel {
 
     }
 
+
+    public void loadDataTable2(final ConsolidateContractModel model) {
+
+        String date = "current";
+        if (mDate != null)
+            date = mDate;
+
+        getApiService().getConsumptionControlTable(date).enqueue(new Callback<List<ConsumptionTable>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<ConsumptionTable>> call,
+                                   @NonNull Response<List<ConsumptionTable>> response) {
+                List<ConsumptionTable> list = response.body();
+                model.setTable2(list);
+            }
+            @Override
+            public void onFailure(Call<List<ConsumptionTable>> call, Throwable t) {
+                Log.i("onFailure: ", "Response not exist");
+            }
+        });
+    }
+
+
     public void loadDataTable3(final ConsolidateContractModel model){
 
         String date = "current";
@@ -85,7 +108,7 @@ public class StationModel {
             public void onResponse(@NonNull Call<List<HydroStationTable>> call,
                                    @NonNull Response<List<HydroStationTable>> response) {
                 List<HydroStationTable> list = response.body();
-                model.loadDataTable3(list);
+                model.setTable3(list);
             }
 
             @Override
@@ -103,4 +126,5 @@ public class StationModel {
     public void setAuthToken(String authToken) {
         mAuthToken = authToken;
     }
+
 }

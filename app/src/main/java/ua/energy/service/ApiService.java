@@ -5,6 +5,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
+import ua.energy.entity.ConsumptionTable;
 import ua.energy.entity.HydroStationTable;
 import ua.energy.entity.Station;
 import ua.energy.entity.User;
@@ -20,4 +21,11 @@ public interface ApiService {
     //ConsolidateActivity
     @GET("/mobile/consolidate_hydrostation")
     Call<List<HydroStationTable>> getHydroStationTable(@Query("date") String date);
+
+    @GET("/mobile/consolidate_consumption")
+    Call<List<ConsumptionTable>> getConsumptionControlTable(@Query("date") String date);
+
+    //"/consolidate_consumption_maxtime"
+
+    //"/consolidate_balance"
 }
