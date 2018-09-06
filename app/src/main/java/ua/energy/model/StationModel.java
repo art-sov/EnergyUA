@@ -8,6 +8,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import ua.energy.entity.ConsolidateTable;
 import ua.energy.entity.ConsumptionTable;
 import ua.energy.entity.HydroStationTable;
 import ua.energy.entity.Station;
@@ -67,12 +68,25 @@ public class StationModel {
     }
 
     //загрузка данных для сведенного отчета
-    public void loadBalanceData(){
+    public void loadDataTable1(final ConsolidateContractModel model){
+        String date = "current";
+        if (mDate != null)
+            date = mDate;
 
-    }
+        getApiService().getBalanceTable(date).enqueue(new Callback<List<ConsolidateTable>>() {
+            @Override
+            public void onResponse(Call<List<ConsolidateTable>> call, Response<List<ConsolidateTable>> response) {
+                List<ConsolidateTable> list = response.body();
+                model.setTable1(list);
+            }
 
-    public void loadConsumptionControl(){
+            @Override
+            public void onFailure(Call<List<ConsolidateTable>> call, Throwable t) {
+                Log.i("onFailure: ", "Response not exist table 1");
 
+            }
+        });
+        mDate = null;
     }
 
 
@@ -91,9 +105,10 @@ public class StationModel {
             }
             @Override
             public void onFailure(Call<List<ConsumptionTable>> call, Throwable t) {
-                Log.i("onFailure: ", "Response not exist");
+                Log.i("onFailure: ", "Response not exist table 2");
             }
         });
+        mDate = null;
     }
 
 
@@ -113,7 +128,7 @@ public class StationModel {
 
             @Override
             public void onFailure(Call<List<HydroStationTable>> call, Throwable t) {
-                Log.i("onFailure: ", "Response not exist");
+                Log.i("onFailure: ", "Response not exist table 3");
             }
         });
         mDate = null;

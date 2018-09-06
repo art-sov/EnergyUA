@@ -31,7 +31,56 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
             android:text="1. Баланс ОЭС Украины" />
+
+        <!--table 1 header-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorBlack"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/table_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5" />
+
+            <TextView
+                style="@style/table_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="MIN" />
+
+            <TextView
+                style="@style/table_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="MAX" />
+
+            <TextView
+                style="@style/table_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Энергия" />
+
+        </LinearLayout>
+        <!--table 1 rows-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvTable1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:nestedScrollingEnabled="false">
+        </android.support.v7.widget.RecyclerView>
 
         <TextView
             android:id="@+id/tvTitleTable2"
@@ -39,15 +88,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
             android:text="2. Контроль потребления, МВт" />
 
         <!--table 2 header-->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:background="@color/colorBlack"
             android:orientation="horizontal">
 
@@ -111,17 +161,20 @@
         </LinearLayout>
 
         <!--table 2 rows-->
-        <ListView
-            android:id="@+id/lvTable2"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvTable2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"/>
+            android:layout_height="match_parent"
+            android:nestedScrollingEnabled="false"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp">
+        </android.support.v7.widget.RecyclerView>
 
         <!--table 3 title-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:gravity="center">
 
             <TextView
@@ -147,10 +200,12 @@
             android:id="@+id/layout_table3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="64dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:background="#000"
-            android:stretchColumns="*"/>
+            android:stretchColumns="*" />
 
     </LinearLayout>
 </ScrollView>

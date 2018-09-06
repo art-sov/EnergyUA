@@ -6,12 +6,11 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 
-import java.util.ArrayList;
-import java.util.Map;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -20,16 +19,23 @@ import butterknife.ButterKnife;
 import ua.energy.R;
 import ua.energy.app.App;
 import ua.energy.compound_view.CompoundTable3;
+import ua.energy.entity.ConsolidateTable;
+import ua.energy.entity.ConsumptionTable;
 import ua.energy.entity.HydroStationTable;
 import ua.energy.presenter.ConsolidatePresenter;
 import ua.energy.util.UtilityListView;
+import ua.energy.view.consolidate.adapter.BalanceAdapter;
+import ua.energy.view.consolidate.adapter.ConsumptionAdapter;
 
 public class ConsolidateActivity extends AppCompatActivity {
 
-    CompoundTable3 viewTable3;
+    @BindView(R.id.rvTable1)
+    RecyclerView mRvTable1;
 
-    @BindView(R.id.lvTable2)
-    ListView lvTable2;
+    @BindView(R.id.rvTable2)
+    RecyclerView mRvTable2;
+
+    CompoundTable3 viewTable3;
 
     @Inject
     ConsolidatePresenter mPresenter;
@@ -46,6 +52,9 @@ public class ConsolidateActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
+        mRvTable1.setLayoutManager(new LinearLayoutManager(this));
+        mRvTable2.setLayoutManager(new LinearLayoutManager(this));
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,10 +65,10 @@ public class ConsolidateActivity extends AppCompatActivity {
         });
         init();
 
+        mPresenter.loadConsolidateBalance();
         mPresenter.loadConsumptionControl();
         mPresenter.loadHydroStationStatus();
     }
-
 
     @Override
     protected void onDestroy() {
@@ -70,22 +79,12 @@ public class ConsolidateActivity extends AppCompatActivity {
         mPresenter.detachView();
     }
 
-    public void setDataTable2(String [] from, ArrayList<Map<String, String>> data){
+    public void setDataTable1(List<ConsolidateTable> list){
+        mRvTable1.setAdapter(new BalanceAdapter(list));
+    }
 
-        int [] to = {R.id.tvTable2Cell1, R.id.tvTable2Cell2, R.id.tvTable2Cell3,
-                R.id.tvTable2Cell4, R.id.tvTable2Cell5};
-
-        SimpleAdapter adapter =
-                new SimpleAdapter(this, data, R.layout.item_row_table2, from, to);
-
-//        BinderViewTable2 binder = new BinderViewTable2(colorHeaderBack, colorHeaderText,
-//                colorCellBack,colorCellText);
-//
-//        adapter.setViewBinder(binder);
-
-        lvTable2 = (ListView) findViewById(R.id.lvTable2);
-        lvTable2.setAdapter(adapter);
-        UtilityListView.setListViewHeightBasedOnChildren(lvTable2);
+    public void setDataTable2(List<ConsumptionTable> list){
+        mRvTable2.setAdapter(new ConsumptionAdapter(list));
     }
 
     public void setDataTable3(HydroStationTable row) {
@@ -106,8 +105,4 @@ public class ConsolidateActivity extends AppCompatActivity {
         mPresenter.attachView(this);
         mPresenter.viewIsReady();
     }
-
-
-
-
 }

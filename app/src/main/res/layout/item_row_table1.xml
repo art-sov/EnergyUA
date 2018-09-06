@@ -7,31 +7,26 @@
     android:background="@color/colorBlack">
 
     <TextView
-        android:id="@+id/tvTable2Cell1"
+        android:id="@+id/tvTable1Cell1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5"
+        style="@style/table_cell"
+        android:gravity="start"/>
+    <TextView
+        android:id="@+id/tvTable1Cell2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         style="@style/table_cell"/>
     <TextView
-        android:id="@+id/tvTable2Cell2"
+        android:id="@+id/tvTable1Cell3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         style="@style/table_cell"/>
     <TextView
-        android:id="@+id/tvTable2Cell3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        style="@style/table_cell"/>
-    <TextView
-        android:id="@+id/tvTable2Cell4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        style="@style/table_cell"/>
-    <TextView
-        android:id="@+id/tvTable2Cell5"
+        android:id="@+id/tvTable1Cell4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
