@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:text="2. Контроль потребления, МВт" />
+            android:text="@string/title_table_2" />
 
         <!--table 2 header-->
         <LinearLayout

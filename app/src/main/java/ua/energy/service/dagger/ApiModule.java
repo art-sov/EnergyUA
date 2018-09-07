@@ -8,6 +8,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 import ua.energy.app.dagger.AppScope;
 import ua.energy.service.ServiceGenerator;
 
@@ -36,7 +37,8 @@ public class ApiModule {
     public Retrofit.Builder provideRetrofitBuilder() {
         Retrofit.Builder builder = new Retrofit.Builder();
         builder.baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create());
+                .addConverterFactory(GsonConverterFactory.create())
+        .addConverterFactory(ScalarsConverterFactory.create());
         return builder;
     }
 

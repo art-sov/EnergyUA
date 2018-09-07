@@ -2,6 +2,7 @@ package ua.energy.view.consolidate;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -23,7 +25,6 @@ import ua.energy.entity.ConsolidateTable;
 import ua.energy.entity.ConsumptionTable;
 import ua.energy.entity.HydroStationTable;
 import ua.energy.presenter.ConsolidatePresenter;
-import ua.energy.util.UtilityListView;
 import ua.energy.view.consolidate.adapter.BalanceAdapter;
 import ua.energy.view.consolidate.adapter.ConsumptionAdapter;
 
@@ -34,6 +35,9 @@ public class ConsolidateActivity extends AppCompatActivity {
 
     @BindView(R.id.rvTable2)
     RecyclerView mRvTable2;
+
+    @BindView(R.id.tvTitleTable2)
+    TextView tvTitleTable2;
 
     CompoundTable3 viewTable3;
 
@@ -65,6 +69,10 @@ public class ConsolidateActivity extends AppCompatActivity {
         });
         init();
 
+        String maxTime = mPresenter.loadMaxTime();
+        String titleTable2 = getResources().getString(R.string.title_table_2, maxTime);
+        tvTitleTable2.setText(titleTable2);
+
         mPresenter.loadConsolidateBalance();
         mPresenter.loadConsumptionControl();
         mPresenter.loadHydroStationStatus();
@@ -82,6 +90,13 @@ public class ConsolidateActivity extends AppCompatActivity {
     public void setDataTable1(List<ConsolidateTable> list){
         mRvTable1.setAdapter(new BalanceAdapter(list));
     }
+
+//    public void setTextMaxTime(String maxTime) {
+//        Resources resource = getResources();
+//        titleTable2 = resource.getString(R.string.title_table_2, maxTime);
+//        tvTitleTable2.setText(titleTable2);
+//
+//    }
 
     public void setDataTable2(List<ConsumptionTable> list){
         mRvTable2.setAdapter(new ConsumptionAdapter(list));
