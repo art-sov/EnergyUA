@@ -8,10 +8,10 @@
             android:id="@+id/nav_dispatcher"
             android:icon="@mipmap/ic_factory"
             android:title="@string/dispatcher" />
-        <item
-            android:id="@+id/nav_rent_car"
-            android:icon="@drawable/ic_car"
-            android:title="@string/rent_car" />
+        <!--<item-->
+            <!--android:id="@+id/nav_rent_car"-->
+            <!--android:icon="@drawable/ic_car"-->
+            <!--android:title="@string/rent_car" />-->
         <!--<item-->
             <!--android:id="@+id/nav_slideshow"-->
             <!--android:icon="@drawable/ic_menu_slideshow"-->

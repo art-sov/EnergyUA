@@ -27,6 +27,9 @@ public class StationModel {
 
     private String mAuthToken;
 
+    String maxTime;
+
+
     //private String maxTime;
 
 
@@ -103,15 +106,13 @@ public class StationModel {
         if (mDate != null)
             date = mDate;
 
-        final String[] maxTime = new String[1];
 
         getApiService().getTimeMax(date).enqueue(new Callback<MaxTime>() {
             @Override
             public void onResponse(@NonNull Call<MaxTime> call,
                                    @NonNull Response<MaxTime> response) {
                 if (response.isSuccessful()) {
-                    MaxTime time = response.body();
-                    maxTime[0] = time.getTime();
+                    maxTime = response.body().getTime();
                 }
 
             }
@@ -121,9 +122,9 @@ public class StationModel {
 
             }
         });
-        Log.i(LOG_TAG, "-------maxTime: " + maxTime[0]);
+        Log.i(LOG_TAG, "-------maxTime: " + maxTime);
         mDate = null;
-        return maxTime[0];
+        return maxTime;
     }
 
     public void loadDataTable2(final ConsolidateContractModel model) {
