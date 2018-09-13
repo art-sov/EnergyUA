@@ -24,15 +24,7 @@ import ua.energy.service.ServiceGenerator;
 public class StationModel {
 
     private String mDate;
-
     private String mAuthToken;
-
-    String maxTime;
-
-
-    //private String maxTime;
-
-
     ServiceGenerator mServiceGenerator;
 
     public StationModel(ServiceGenerator serviceGenerator) {
@@ -101,7 +93,7 @@ public class StationModel {
         mDate = null;
     }
 
-    public String loadMaxTime() {
+    public void loadMaxTime(final ConsolidateContractModel model) {
         String date = "current";
         if (mDate != null)
             date = mDate;
@@ -112,7 +104,9 @@ public class StationModel {
             public void onResponse(@NonNull Call<MaxTime> call,
                                    @NonNull Response<MaxTime> response) {
                 if (response.isSuccessful()) {
-                    maxTime = response.body().getTime();
+                    String maxTime = response.body().getTime();
+                    model.setMaxTime(maxTime);
+                    Log.i(LOG_TAG, "------maxTime: "+ maxTime);
                 }
 
             }
@@ -122,9 +116,7 @@ public class StationModel {
 
             }
         });
-        Log.i(LOG_TAG, "-------maxTime: " + maxTime);
         mDate = null;
-        return maxTime;
     }
 
     public void loadDataTable2(final ConsolidateContractModel model) {

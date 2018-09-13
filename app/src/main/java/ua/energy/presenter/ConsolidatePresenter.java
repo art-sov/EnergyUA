@@ -33,8 +33,8 @@ public class ConsolidatePresenter implements ConsolidateContractModel{
         mModel.loadDataTable1(this);
     }
 
-    public String loadMaxTime() {
-        return mModel.loadMaxTime();
+    public void loadMaxTime() {
+        mModel.loadMaxTime(this);
     }
 
     public void loadConsumptionControl() {
@@ -51,10 +51,10 @@ public class ConsolidatePresenter implements ConsolidateContractModel{
         mView.setDataTable1(list);
     }
 
-//    @Override
-//    public void setMaxTime(String maxTime) {
-//        mView.setTextMaxTime(maxTime);
-//    }
+    @Override
+    public void setMaxTime(String maxTime) {
+        mView.setTime(maxTime);
+    }
 
     @Override
     public void setTable2(List<ConsumptionTable> list) {

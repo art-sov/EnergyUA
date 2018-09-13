@@ -69,10 +69,7 @@ public class ConsolidateActivity extends AppCompatActivity {
         });
         init();
 
-        String maxTime = mPresenter.loadMaxTime();
-        String titleTable2 = getResources().getString(R.string.title_table_2, maxTime);
-        tvTitleTable2.setText(titleTable2);
-
+        mPresenter.loadMaxTime();
         mPresenter.loadConsolidateBalance();
         mPresenter.loadConsumptionControl();
         mPresenter.loadHydroStationStatus();
@@ -91,12 +88,12 @@ public class ConsolidateActivity extends AppCompatActivity {
         mRvTable1.setAdapter(new BalanceAdapter(list));
     }
 
-//    public void setTextMaxTime(String maxTime) {
-//        Resources resource = getResources();
-//        titleTable2 = resource.getString(R.string.title_table_2, maxTime);
-//        tvTitleTable2.setText(titleTable2);
-//
-//    }
+    public void setTime(String maxTime) {
+        Resources resource = getResources();
+        String titleTable2 = resource.getString(R.string.title_table_2, maxTime);
+        tvTitleTable2.setText(titleTable2);
+
+    }
 
     public void setDataTable2(List<ConsumptionTable> list){
         mRvTable2.setAdapter(new ConsumptionAdapter(list));

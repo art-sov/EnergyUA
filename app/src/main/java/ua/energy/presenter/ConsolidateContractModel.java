@@ -14,5 +14,5 @@ public interface ConsolidateContractModel {
 
         void setTable3(List<HydroStationTable> list);
 
-        //void setMaxTime(String maxTime);
+        void setMaxTime(String maxTime);
 }
