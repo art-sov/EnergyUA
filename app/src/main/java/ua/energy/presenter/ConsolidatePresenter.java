@@ -1,6 +1,11 @@
 package ua.energy.presenter;
 
+import android.util.Log;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import ua.energy.entity.ConsolidateTable;
 import ua.energy.entity.ConsumptionTable;
@@ -68,7 +73,21 @@ public class ConsolidatePresenter implements ConsolidateContractModel{
         }
     }
 
+    public void dateSelected(int year, int month, int day) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month, day);
 
+        SimpleDateFormat simpleDateFormat =
+                new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+        String date = simpleDateFormat.format(calendar.getTime());
+        Log.i("!!!!!!!Date: ", date);
 
+        mModel.saveDate(date);
+        loadMaxTime();
+        loadConsolidateBalance();
+        loadConsumptionControl();
+        loadHydroStationStatus();
 
+        mModel.saveDate(null);
+    }
 }

@@ -19,7 +19,7 @@
             android:gravity="center"
             android:paddingBottom="@dimen/simple_margin"
             android:paddingTop="@dimen/simple_margin"
-            android:text="Ведомости о работе энергосистем ОЭС Украины на 03.09.2018"
+            android:text="@string/title_consolidate_statements"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="20sp"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:text="1. Баланс ОЭС Украины" />
+            android:text="@string/title_table_1" />
 
         <!--table 1 header-->
         <LinearLayout
@@ -78,9 +78,8 @@
             android:id="@+id/rvTable1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:nestedScrollingEnabled="false">
+            android:layout_marginStart="16dp">
         </android.support.v7.widget.RecyclerView>
 
         <TextView
@@ -166,36 +165,20 @@
             android:id="@+id/rvTable2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:nestedScrollingEnabled="false"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp">
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp">
         </android.support.v7.widget.RecyclerView>
 
         <!--table 3 title-->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tvTitleTable3"
+            style="@style/title_table"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:gravity="center">
-
-            <TextView
-                style="@style/title_table"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingEnd="2dp"
-                android:paddingStart="2dp"
-                android:text="3. Состояние ГЭС на 6:00" />
-
-            <TextView
-                android:id="@+id/tvDateTable3"
-                style="@style/title_table"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingEnd="2dp"
-                android:paddingStart="2dp"
-                android:text="03.09" />
-        </LinearLayout>
-
+            android:gravity="center"
+            android:text="@string/title_table_3"
+            android:layout_gravity="center"/>
         <!--table 3-->
         <ua.energy.compound_view.CompoundTable3
             android:id="@+id/layout_table3"
@@ -207,6 +190,5 @@
             android:layout_marginTop="8dp"
             android:background="#000"
             android:stretchColumns="*" />
-
     </LinearLayout>
 </ScrollView>

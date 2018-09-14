@@ -5,6 +5,7 @@ import android.util.Log;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import ua.energy.entity.Block;
 import ua.energy.entity.ColorRepair;
@@ -43,7 +44,7 @@ public class StationActivityPresenter implements StationContractModel {
 
     }
 
-    public void updateStationContent(List<Station> list) {
+    private void updateStationContent(List<Station> list) {
         int index = 0;
         ShortNameStation shortNameStation = new ShortNameStation();
         ColorRepair colorRepair = new ColorRepair();
@@ -149,7 +150,8 @@ public class StationActivityPresenter implements StationContractModel {
             model.loadStations(this);}
 
         else {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
+            SimpleDateFormat simpleDateFormat =
+                    new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
             String date = simpleDateFormat.format(selectedCalendar.getTime());
             Log.i("!!!!!!!Date: ", date);
             model.saveDate(date);

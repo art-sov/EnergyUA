@@ -3,10 +3,8 @@ package ua.energy.model;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import java.io.IOException;
 import java.util.List;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -16,7 +14,6 @@ import ua.energy.entity.HydroStationTable;
 import ua.energy.entity.MaxTime;
 import ua.energy.entity.Station;
 import ua.energy.presenter.ConsolidateContractModel;
-import ua.energy.presenter.ConsolidatePresenter;
 import ua.energy.presenter.StationContractModel;
 import ua.energy.service.ApiService;
 import ua.energy.service.ServiceGenerator;
@@ -31,7 +28,7 @@ public class StationModel {
         mServiceGenerator = serviceGenerator;
     }
 
-    public static final String LOG_TAG = StationModel.class.getName();
+    private static final String LOG_TAG = StationModel.class.getName();
 
     private ApiService getApiService(){
         return mServiceGenerator.createService(ApiService.class, mAuthToken);
@@ -79,18 +76,18 @@ public class StationModel {
 
         getApiService().getBalanceTable(date).enqueue(new Callback<List<ConsolidateTable>>() {
             @Override
-            public void onResponse(Call<List<ConsolidateTable>> call, Response<List<ConsolidateTable>> response) {
+            public void onResponse(@NonNull Call<List<ConsolidateTable>> call,
+                                   @NonNull Response<List<ConsolidateTable>> response) {
                 List<ConsolidateTable> list = response.body();
                 model.setTable1(list);
             }
 
             @Override
-            public void onFailure(Call<List<ConsolidateTable>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<ConsolidateTable>> call, @NonNull Throwable t) {
                 Log.i("onFailure: ", "Response not exist table 1");
 
             }
         });
-        mDate = null;
     }
 
     public void loadMaxTime(final ConsolidateContractModel model) {
@@ -108,15 +105,13 @@ public class StationModel {
                     model.setMaxTime(maxTime);
                     Log.i(LOG_TAG, "------maxTime: "+ maxTime);
                 }
-
             }
             @Override
-            public void onFailure(Call<MaxTime> call, Throwable t) {
+            public void onFailure(@NonNull Call<MaxTime> call, @NonNull Throwable t) {
                 Log.i("onFailure: ", "Response not exist table 2 maxTime");
 
             }
         });
-        mDate = null;
     }
 
     public void loadDataTable2(final ConsolidateContractModel model) {
@@ -133,11 +128,10 @@ public class StationModel {
                 model.setTable2(list);
             }
             @Override
-            public void onFailure(Call<List<ConsumptionTable>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<ConsumptionTable>> call, @NonNull Throwable t) {
                 Log.i("onFailure: ", "Response not exist table 2");
             }
         });
-        mDate = null;
     }
 
 
@@ -160,7 +154,6 @@ public class StationModel {
                 Log.i("onFailure: ", "Response not exist table 3");
             }
         });
-        mDate = null;
     }
 
     public void saveDate (String date){

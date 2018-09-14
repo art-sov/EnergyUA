@@ -20,7 +20,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -30,6 +29,7 @@ import ua.energy.compound_view.CompoundStation;
 import ua.energy.R;
 import ua.energy.app.App;
 import ua.energy.entity.Unit;
+import ua.energy.util.DateUtil;
 import ua.energy.view.StationContractView;
 import ua.energy.view.consolidate.ConsolidateActivity;
 import ua.energy.view.login.LoginActivity;
@@ -62,13 +62,7 @@ public class StationActivity extends AppCompatActivity implements StationContrac
 
         mainLayout = (CoordinatorLayout) findViewById(R.id.main_layout);
 
-        Date date = new Date();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-
+        Calendar calendar = DateUtil.getCurrentCalendar();
         DatePickerDialog.OnDateSetListener dialogListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -77,7 +71,10 @@ public class StationActivity extends AppCompatActivity implements StationContrac
             }
         };
 
-        dialog = new DatePickerDialog(this, dialogListener, year, month, day);
+        dialog = new DatePickerDialog(this, dialogListener,
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH));
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_station);
         fab.setOnClickListener(new View.OnClickListener() {

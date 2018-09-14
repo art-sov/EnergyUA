@@ -54,17 +54,28 @@ public class BalanceAdapter extends RecyclerView.Adapter<BalanceAdapter.BalanceV
         }
 
         void bind(ConsolidateTable row) {
-         tvTable1Cell1.setText(row.getColumn2());
-         if (row.getColumn2().equals("Частота,Гц")){
-             tvTable1Cell2.setText(String.format("%.2f", row.getColumn3()));
-             tvTable1Cell3.setText(String.format("%.2f", row.getColumn4()));
-             tvTable1Cell4.setText(String.format("%.3f", row.getColumn5()));
-         }
-         else {
-             tvTable1Cell2.setText(String.format("%.0f", row.getColumn3()));
-             tvTable1Cell3.setText(String.format("%.0f", row.getColumn4()));
-             tvTable1Cell4.setText(String.format("%.3f", row.getColumn5()));
-         }
+            tvTable1Cell1.setText(row.getColumn2());
+            switch (row.getColumn2()) {
+                case "Частота,Гц":
+                    tvTable1Cell2.setText(String.format("%.2f", row.getColumn3()));
+                    tvTable1Cell3.setText(String.format("%.2f", row.getColumn4()));
+                    tvTable1Cell4.setText("");
+                    break;
+                case "Година":
+                    tvTable1Cell2.setText(String.format("%.0f", row.getColumn3()));
+                    tvTable1Cell3.setText(String.format("%.0f", row.getColumn4()));
+                    tvTable1Cell4.setText("");
+                    break;
+
+                default:
+                    tvTable1Cell2.setText(String.format("%.0f", row.getColumn3()));
+                    tvTable1Cell3.setText(String.format("%.0f", row.getColumn4()));
+                    if (row.getColumn5() == 0) {
+                        tvTable1Cell4.setText("0");
+                    } else {
+                        tvTable1Cell4.setText(String.format("%.3f", row.getColumn5()));
+                    }
+            }
         }
     }
 }

@@ -43,5 +43,8 @@
     <string name="title_activity_consolidate">Сведенный отчет</string>
 
     <!--Consolidate Activity-->
-    <string name="title_table_2">2. Контроль потребления, %1$s МВт</string>
+    <string name="title_consolidate_statements">Ведомости о работе энергосистемы ОЭС Украины на %1$s</string>
+    <string name="title_table_1">1. Баланс ОЭС Украины</string>
+    <string name="title_table_2">2. Контроль потребления %1$s МВт</string>
+    <string name="title_table_3">3. Состояние ГЭС на 6:00 %1$s</string>
 </resources>
