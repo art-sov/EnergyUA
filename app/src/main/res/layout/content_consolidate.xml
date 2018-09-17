@@ -5,7 +5,7 @@
 
     <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".view.consolidate.ConsolidateActivity"
         tools:showIn="@layout/activity_consolidate">
@@ -73,7 +73,6 @@
 
         </LinearLayout>
         <!--table 1 rows-->
-
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rvTable1"
             android:layout_width="match_parent"
@@ -175,10 +174,10 @@
             style="@style/title_table"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:gravity="center"
-            android:text="@string/title_table_3"
-            android:layout_gravity="center"/>
+            android:text="@string/title_table_3" />
         <!--table 3-->
         <ua.energy.compound_view.CompoundTable3
             android:id="@+id/layout_table3"

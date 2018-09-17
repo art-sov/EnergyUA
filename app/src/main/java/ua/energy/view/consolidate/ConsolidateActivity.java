@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,9 +13,7 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
-import java.text.DateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -71,6 +68,9 @@ public class ConsolidateActivity extends AppCompatActivity implements DatePicker
 
         ButterKnife.bind(this);
 
+//        CustomLinearLayoutManager layoutManager = new CustomLinearLayoutManager(this);
+//        layoutManager.setScrollEnabled(false);
+     //   mRvTable1.setLayoutManager(layoutManager);
         mRvTable1.setLayoutManager(new LinearLayoutManager(this));
         mRvTable2.setLayoutManager(new LinearLayoutManager(this));
 
