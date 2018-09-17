@@ -33,6 +33,8 @@ import ua.energy.util.DateUtil;
 import ua.energy.view.StationContractView;
 import ua.energy.view.consolidate.ConsolidateActivity;
 import ua.energy.view.login.LoginActivity;
+import ua.energy.view.station.dagger.StationActivityComponent;
+import ua.energy.view.station.dagger.StationActivityModule;
 
 public class StationActivity extends AppCompatActivity implements StationContractView {
 
@@ -49,7 +51,9 @@ public class StationActivity extends AppCompatActivity implements StationContrac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_station);
 
-        App.getApp(this).getComponentsHolder().getStationActivityComponent().inject(this);
+        StationActivityComponent component = (StationActivityComponent)App.getApp(this).getComponentsHolder()
+        .getActivityComponent(getClass(), new StationActivityModule());
+        component.inject(this);
 
         SharedPreferences sharedPreferences = getSharedPreferences("dispatcher", Context.MODE_PRIVATE);
         authToken = sharedPreferences.getString("authToken", "");
@@ -105,7 +109,7 @@ public class StationActivity extends AppCompatActivity implements StationContrac
 
         // при уничтожении активити удаляем ее компонент
         if (isFinishing()) {
-            App.getApp(this).getComponentsHolder().releaseStationActivityComponent();
+            App.getApp(this).getComponentsHolder().releaseActivityComponent(getClass());
         }
     }
 

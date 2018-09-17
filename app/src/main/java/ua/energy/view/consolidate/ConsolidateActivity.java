@@ -30,6 +30,8 @@ import ua.energy.presenter.ConsolidatePresenter;
 import ua.energy.util.DateUtil;
 import ua.energy.view.consolidate.adapter.BalanceAdapter;
 import ua.energy.view.consolidate.adapter.ConsumptionAdapter;
+import ua.energy.view.consolidate.dagger.ConsolidateActivityComponent;
+import ua.energy.view.consolidate.dagger.ConsolidateActivityModule;
 
 public class ConsolidateActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
@@ -53,7 +55,7 @@ public class ConsolidateActivity extends AppCompatActivity implements DatePicker
     @Inject
     ConsolidatePresenter mPresenter;
 
-    DatePickerDialog mDialod;
+    DatePickerDialog mDialog;
 
 
     @Override
@@ -64,7 +66,14 @@ public class ConsolidateActivity extends AppCompatActivity implements DatePicker
 //        setSupportActionBar(toolbar);
 
         viewTable3 = (CompoundTable3) findViewById(R.id.layout_table3);
-        App.getApp(this).getComponentsHolder().getConsolidateActivityComponent().inject(this);
+        //App.getApp(this).getComponentsHolder().getConsolidateActivityComponent().inject(this);
+
+        ConsolidateActivityComponent component = (ConsolidateActivityComponent)App
+                .getApp(this)
+                .getComponentsHolder()
+                .getActivityComponent(getClass(), new ConsolidateActivityModule());
+
+        component.inject(this);
 
         ButterKnife.bind(this);
 
@@ -75,7 +84,7 @@ public class ConsolidateActivity extends AppCompatActivity implements DatePicker
         mRvTable2.setLayoutManager(new LinearLayoutManager(this));
 
         Calendar calendar = DateUtil.getCurrentCalendar();
-        mDialod = new DatePickerDialog(this, this,
+        mDialog = new DatePickerDialog(this, this,
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
                 calendar.get(Calendar.DAY_OF_MONTH));
@@ -85,7 +94,7 @@ public class ConsolidateActivity extends AppCompatActivity implements DatePicker
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mDialod.show();
+                mDialog.show();
             }
         });
 
@@ -104,7 +113,7 @@ public class ConsolidateActivity extends AppCompatActivity implements DatePicker
     protected void onDestroy() {
         super.onDestroy();
         if (isFinishing()) {
-            App.getApp(this).getComponentsHolder().releaseConsolidateActivityComponent();
+            App.getApp(this).getComponentsHolder().releaseActivityComponent(getClass());
         }
         mPresenter.detachView();
     }

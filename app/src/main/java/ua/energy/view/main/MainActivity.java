@@ -23,6 +23,8 @@ import javax.inject.Inject;
 import ua.energy.R;
 import ua.energy.app.App;
 import ua.energy.view.login.LoginActivity;
+import ua.energy.view.main.dagger.MainActivityComponent;
+import ua.energy.view.main.dagger.MainActivityModule;
 import ua.energy.view.station.StationActivity;
 
 public class MainActivity extends AppCompatActivity
@@ -40,7 +42,12 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        App.getApp(this).getComponentsHolder().getMainActivityComponent().inject(this);
+        MainActivityComponent component = (MainActivityComponent) App
+                .getApp(this)
+                .getComponentsHolder()
+                .getActivityComponent(getClass(), new MainActivityModule());
+
+        component.inject(this);
 
         mPreferences = getSharedPreferences("dispatcher", Context.MODE_PRIVATE);
         String authToken = mPreferences.getString("authToken", "");
@@ -97,7 +104,7 @@ public class MainActivity extends AppCompatActivity
         super.onDestroy();
 
         if (isFinishing()) {
-            App.getApp(this).getComponentsHolder().releaseMainActivityComponent();
+            App.getApp(this).getComponentsHolder().releaseActivityComponent(getClass());
         }
 
     }

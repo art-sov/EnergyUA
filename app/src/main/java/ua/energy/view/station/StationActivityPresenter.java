@@ -49,7 +49,7 @@ public class StationActivityPresenter implements StationContractModel {
         ShortNameStation shortNameStation = new ShortNameStation();
         ColorRepair colorRepair = new ColorRepair();
         for (Station station: list){
-            //сключение Мироновской ТЭС
+            //исключение Мироновской ТЭС
             if (station.getId() == 513004 || station.getId() == 513326) {
                 continue;
             }

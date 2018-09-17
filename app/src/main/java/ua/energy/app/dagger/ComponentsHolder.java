@@ -2,26 +2,29 @@ package ua.energy.app.dagger;
 
 import android.content.Context;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.inject.Inject;
+import javax.inject.Provider;
+
+import ua.energy.app.dagger.base.ActivityComponent;
+import ua.energy.app.dagger.base.ActivityComponentBuilder;
+import ua.energy.app.dagger.base.ActivityModule;
 import ua.energy.app.dagger.dispatcher.DispatcherComponent;
 import ua.energy.app.dagger.dispatcher.DispatcherModule;
-import ua.energy.view.consolidate.dagger.ConsolidateActivityComponent;
-import ua.energy.view.consolidate.dagger.ConsolidateActivityModule;
-import ua.energy.view.login.dagger.LoginActivityComponent;
-import ua.energy.view.login.dagger.LoginActivityModule;
-import ua.energy.view.main.dagger.MainActivityComponent;
-import ua.energy.view.station.dagger.StationActivityComponent;
-import ua.energy.view.station.dagger.StationActivityModule;
 
 public class ComponentsHolder {
 
     private final Context mContext;
 
-    private  AppComponent mAppComponent;
+    private AppComponent mAppComponent;
     private DispatcherComponent mDispatcherComponent;
-    private StationActivityComponent mStationActivityComponent;
-    private LoginActivityComponent mLoginActivityComponent;
-    private MainActivityComponent mMainActivityComponent;
-    private ConsolidateActivityComponent mConsolidateActivityComponent;
+
+    @Inject
+    Map<Class<?>, Provider<ActivityComponentBuilder>> builders;
+
+    private Map<Class<?>, ActivityComponent> components;
 
     public ComponentsHolder (Context context) {
         mContext = context;
@@ -29,6 +32,8 @@ public class ComponentsHolder {
 
     public void init() {
         mAppComponent = DaggerAppComponent.builder().appModule(new AppModule(mContext)).build();
+        getDispatcherComponent().injectComponentsHolder(this);
+        components = new HashMap<>();
     }
 
     // AppComponent
@@ -48,58 +53,26 @@ public class ComponentsHolder {
         mDispatcherComponent = null;
     }
 
-    //StationActivityComponent
-    public StationActivityComponent getStationActivityComponent(){
+    public ActivityComponent getActivityComponent(Class<?> cls) {
+        return getActivityComponent(cls, null);
+    }
 
-        if (mStationActivityComponent == null) {
-            mStationActivityComponent =
-                    getDispatcherComponent().createStationActivityComponent(new StationActivityModule());
+    public ActivityComponent getActivityComponent(Class<?> cls, ActivityModule module){
+
+        ActivityComponent component = components.get(cls);
+
+        if (component == null) {
+            ActivityComponentBuilder builder = builders.get(cls).get();
+            if (module != null) {
+                builder.module(module);
+            }
+            component = builder.build();
+            components.put(cls, component);
         }
-        return mStationActivityComponent;
+        return component;
     }
 
-    public void releaseStationActivityComponent(){
-        mStationActivityComponent = null;
-    }
-
-    //LoginActivityComponent
-    public LoginActivityComponent getLoginActivityComponent() {
-
-        if (mLoginActivityComponent == null) {
-            mLoginActivityComponent =
-                    getDispatcherComponent().createLoginActivityComponent(new LoginActivityModule());
-        }
-        return mLoginActivityComponent;
-    }
-
-    public void releaseLoginActivityComponent(){
-        mLoginActivityComponent = null;
-    }
-
-    //MainActivityComponent
-    public MainActivityComponent getMainActivityComponent() {
-
-        if (mMainActivityComponent == null) {
-            mMainActivityComponent = getDispatcherComponent().createMainActivityComponent();
-        }
-        return mMainActivityComponent;
-    }
-
-    public void releaseMainActivityComponent() {
-        mMainActivityComponent = null;
-    }
-
-    //ConsolidateActivity
-    public ConsolidateActivityComponent getConsolidateActivityComponent(){
-
-        if (mConsolidateActivityComponent == null) {
-            mConsolidateActivityComponent =
-                    getDispatcherComponent().createConsolidateActivityComponent(new ConsolidateActivityModule());
-        }
-        return mConsolidateActivityComponent;
-    }
-
-    public void releaseConsolidateActivityComponent(){
-        mConsolidateActivityComponent = null;
+    public void releaseActivityComponent(Class<?> cls) {
+        components.put(cls, null);
     }
 }

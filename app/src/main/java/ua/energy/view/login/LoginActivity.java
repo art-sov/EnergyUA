@@ -29,6 +29,7 @@ import ua.energy.app.App;
 import ua.energy.entity.User;
 import ua.energy.service.ApiService;
 import ua.energy.service.ServiceGenerator;
+import ua.energy.view.login.dagger.LoginActivityComponent;
 import ua.energy.view.main.MainActivity;
 
 public class LoginActivity extends AppCompatActivity{
@@ -49,7 +50,11 @@ public class LoginActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        App.getApp(this).getComponentsHolder().getLoginActivityComponent().inject(this);
+        LoginActivityComponent component = (LoginActivityComponent)App
+                .getApp(this)
+                .getComponentsHolder()
+                .getActivityComponent(getClass());
+        component.inject(this);
 
         mUsernameView = (EditText) findViewById(R.id.et_username);
         mPasswordView = (EditText) findViewById(R.id.et_password);
@@ -109,7 +114,7 @@ public class LoginActivity extends AppCompatActivity{
         super.onDestroy();
 
         if (isFinishing()) {
-            App.getApp(this).getComponentsHolder().releaseLoginActivityComponent();
+            App.getApp(this).getComponentsHolder().releaseActivityComponent(getClass());
         }
     }
 
