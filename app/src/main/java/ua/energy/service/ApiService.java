@@ -35,4 +35,7 @@ public interface ApiService {
     @GET("/mobile/consolidate_consumption_maxtime")
     Call<MaxTime> getTimeMax(@Query("date") String date);
 
+    @GET("mobile/remarks")
+    Call<String> getRemarks(@Query("date") String date);
+
 }

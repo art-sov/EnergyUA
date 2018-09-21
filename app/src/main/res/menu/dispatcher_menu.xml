@@ -11,4 +11,9 @@
         android:id="@+id/action_consolidate_report"
         android:title="@string/consolidate_report"
         app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_remarks"
+        android:title="@string/title_activity_remarks"
+        app:showAsAction="never"/>
 </menu>

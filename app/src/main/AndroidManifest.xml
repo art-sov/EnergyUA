@@ -29,15 +29,21 @@
         <activity
             android:name=".view.station.StationActivity"
             android:label="@string/title_activity_station"
-            android:parentActivityName=".view.main.MainActivity"></activity>
+            android:parentActivityName=".view.main.MainActivity" />
         <activity
             android:name=".view.login.LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login" />
         <activity
             android:name=".view.consolidate.ConsolidateActivity"
             android:label="@string/title_activity_consolidate"
             android:parentActivityName=".view.station.StationActivity"
             android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ua.energy.view.station.StationActivity" />
+        </activity>
+        <activity android:name=".view.remark.RemarkActivity"
+            android:label="@string/title_activity_remarks">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ua.energy.view.station.StationActivity" />

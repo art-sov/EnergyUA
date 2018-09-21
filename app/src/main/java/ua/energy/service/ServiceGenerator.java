@@ -18,6 +18,9 @@ public class ServiceGenerator {
         this.httpClientBuilder = httpClientBuilder;
     }
 
+    public ServiceGenerator(){
+    }
+
     public <S> S createService(Class<S> serviceClass) {
         return createService(serviceClass, null, null);
     }

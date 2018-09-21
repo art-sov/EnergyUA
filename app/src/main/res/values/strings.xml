@@ -8,6 +8,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_station">Состояние блоков</string>
     <string name="alert_dialog_title">Состояние блока</string>
+    <string name="title_activity_remarks">Замечания</string>
 
     <!--Elements of block-->
     <string name="station">Станция:</string>
@@ -47,4 +48,5 @@
     <string name="title_table_1">1. Баланс ОЭС Украины</string>
     <string name="title_table_2">2. Контроль потребления %1$s МВт</string>
     <string name="title_table_3">3. Состояние ГЭС на 6:00 %1$s</string>
+    <string name="title_remarks">Замечания к работе энергосистем</string>
 </resources>

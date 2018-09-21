@@ -33,6 +33,7 @@ import ua.energy.util.DateUtil;
 import ua.energy.view.StationContractView;
 import ua.energy.view.consolidate.ConsolidateActivity;
 import ua.energy.view.login.LoginActivity;
+import ua.energy.view.remark.RemarkActivity;
 import ua.energy.view.station.dagger.StationActivityComponent;
 import ua.energy.view.station.dagger.StationActivityModule;
 
@@ -129,6 +130,10 @@ public class StationActivity extends AppCompatActivity implements StationContrac
             case R.id.action_consolidate_report:
                 Intent intent = ConsolidateActivity.newIntent(this);
                 startActivity(intent);
+                return true;
+            case R.id.action_remarks:
+                Intent intentRemarks = RemarkActivity.newIntent(this);
+                startActivity(intentRemarks);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
